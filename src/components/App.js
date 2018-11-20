@@ -11,56 +11,368 @@ const Wrapper = styled.section`
 `
 
 export default class App extends Component {
-  game = {
-    key: uid(),
-    id: uid(),
-    title: 'The Settlers of Catan',
-    numPlayers: '3-4',
-    playingTime: '60-120',
-    age: '10+',
-    players: [
+  state = {
+    games: [
       {
         key: uid(),
         id: uid(),
-        name: 'Frauke',
-        likesGame: true,
-        ownsGame: true
+        title: 'The Settlers of Catan',
+        numPlayers: '3-4',
+        playingTime: '60-120',
+        age: '10+',
+        players: [
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Frauke',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Alex',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jerry',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Tom',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Kelly',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Hans',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jan',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Melanie',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Benno',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Lukas',
+            likesGame: false,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Chris',
+            likesGame: true,
+            ownsGame: false
+          }
+        ]
       },
-      { key: uid(), id: uid(), name: 'Alex', likesGame: true, ownsGame: true },
-      { key: uid(), id: uid(), name: 'Jerry', likesGame: true, ownsGame: true },
-      { key: uid(), id: uid(), name: 'Tom', likesGame: true, ownsGame: false },
       {
         key: uid(),
         id: uid(),
-        name: 'Kelly',
-        likesGame: true,
-        ownsGame: false
+        title: 'Keyforge',
+        numPlayers: '2',
+        playingTime: '15-45',
+        age: '14+',
+        players: [
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Frauke',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Alex',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jerry',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Tom',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Kelly',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Hans',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jan',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Melanie',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Benno',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Lukas',
+            likesGame: false,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Chris',
+            likesGame: true,
+            ownsGame: false
+          }
+        ]
       },
-      { key: uid(), id: uid(), name: 'Hans', likesGame: true, ownsGame: false },
-      { key: uid(), id: uid(), name: 'Jan', likesGame: false, ownsGame: false },
       {
         key: uid(),
         id: uid(),
-        name: 'Melanie',
-        likesGame: true,
-        ownsGame: false
+        title: 'Monopoly',
+        numPlayers: '2-8',
+        playingTime: '60-180',
+        age: '8+',
+        players: [
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Frauke',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Alex',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jerry',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Tom',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Kelly',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Hans',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jan',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Melanie',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Benno',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Lukas',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Chris',
+            likesGame: true,
+            ownsGame: true
+          }
+        ]
       },
       {
         key: uid(),
         id: uid(),
-        name: 'Benno',
-        likesGame: true,
-        ownsGame: false
-      },
-      { key: uid(), id: uid(), name: 'Lukas', likesGame: false, ownsGame: true }
+        title: 'Qwirkle',
+        numPlayers: '2-4',
+        playingTime: '45',
+        age: '6+',
+        players: [
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Frauke',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Alex',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jerry',
+            likesGame: true,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Tom',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Kelly',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Hans',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jan',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Melanie',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Benno',
+            likesGame: true,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Lukas',
+            likesGame: false,
+            ownsGame: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Chris',
+            likesGame: true,
+            ownsGame: false
+          }
+        ]
+      }
     ]
   }
 
   render() {
-    return (
-      <Wrapper>
-        <Game data={this.game} />
-      </Wrapper>
-    )
+    return <Wrapper>{this.renderAllGames()}</Wrapper>
   }
+
+  renderAllGames() {
+    return this.state.games
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleGame)
+  }
+
+  renderSingleGame = game => <Game data={game} />
 }
