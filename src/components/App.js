@@ -17,9 +17,12 @@ export default class App extends Component {
         key: uid(),
         id: uid(),
         title: 'The Settlers of Catan',
+        imgScr:
+          'https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg',
         numPlayers: '3-4',
         playingTime: '60-120',
         age: '10+',
+        isExpanded: false,
         players: [
           {
             key: uid(),
@@ -103,10 +106,13 @@ export default class App extends Component {
       {
         key: uid(),
         id: uid(),
-        title: 'Keyforge',
-        numPlayers: '2',
-        playingTime: '15-45',
-        age: '14+',
+        title: 'UNO',
+        imgScr:
+          'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg',
+        numPlayers: '2-10',
+        playingTime: '30',
+        age: '6+',
+        isExpanded: false,
         players: [
           {
             key: uid(),
@@ -191,9 +197,12 @@ export default class App extends Component {
         key: uid(),
         id: uid(),
         title: 'Monopoly',
+        imgScr:
+          'https://cf.geekdo-images.com/original/img/KzMGdogea21FKDqAG_dRw0j6S-k=/0x0/pic227097.jpg',
         numPlayers: '2-8',
         playingTime: '60-180',
         age: '8+',
+        isExpanded: false,
         players: [
           {
             key: uid(),
@@ -278,9 +287,12 @@ export default class App extends Component {
         key: uid(),
         id: uid(),
         title: 'Qwirkle',
+        imgScr:
+          'https://cf.geekdo-images.com/original/img/FnLhG5NDbel24voh8nbdYXAYji0=/0x0/pic309353.jpg',
         numPlayers: '2-4',
         playingTime: '45',
         age: '6+',
+        isExpanded: false,
         players: [
           {
             key: uid(),
@@ -374,5 +386,25 @@ export default class App extends Component {
       .map(this.renderSingleGame)
   }
 
-  renderSingleGame = game => <Game data={game} />
+  renderSingleGame = game => (
+    <Game
+      key={game.key}
+      data={game}
+      onClick={() => this.toggleExpand(game.id)}
+    />
+  )
+
+  toggleExpand = id => {
+    const { games } = this.state
+    const index = games.findIndex(g => g.id === id)
+    const game = games[index]
+    const updatedGames = [
+      ...games.slice(0, index),
+      { ...game, isExpanded: !game.isExpanded },
+      ...games.slice(index + 1)
+    ]
+    this.setState({
+      games: updatedGames
+    })
+  }
 }

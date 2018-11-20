@@ -6,27 +6,31 @@ const Wrapper = styled.section`
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+`
+
+const Content = styled.section`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr auto;
-  padding: 10px;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  grid-template-rows: auto;
+  padding: 20px;
 
   span {
     align-items: center;
     color: grey;
     display: flex;
-    font-size: 14px;
+    font-size: 16px;
   }
 `
 const ImageContainer = styled.div`
-  grid-row-start: span 2;
+  /* grid-column-start: span 4; */
   line-height: 0;
   width: 100%;
 `
 
 const Image = styled.img`
-  height: 80px;
+  border-radius: 5px 5px 0 0;
+  height: 120px;
   object-fit: cover;
   /* opacity: 0.7; */
   width: 100%;
@@ -37,6 +41,20 @@ const Title = styled.h2`
   display: flex;
   grid-column-start: span 3;
   margin: 0;
+`
+const ToggleIcon = styled.div`
+  align-items: center;
+  display: flex;
+  grid-row-start: span 2;
+  justify-content: center;
+
+  i {
+    font-size: 20px;
+  }
+
+  &.rotate {
+    transform: rotate(180deg);
+  }
 `
 
 const Taglist = styled.ul`
@@ -63,6 +81,13 @@ const AdditionalContent = styled.section`
   grid-gap: 10px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s;
+
+  &.expand {
+    max-height: 800px;
+  }
 `
 
 const Heading = styled.h4`
@@ -71,22 +96,35 @@ const Heading = styled.h4`
 
 export default class Game extends Component {
   render() {
-    const { title, numPlayers, playingTime, age } = this.props.data
+    const {
+      title,
+      imgScr,
+      numPlayers,
+      playingTime,
+      age,
+      isExpanded
+    } = this.props.data
+    const { onClick } = this.props
     return (
       <Wrapper>
         <ImageContainer>
-          <Image src="https://source.unsplash.com/random" alt="" />
+          <Image src={imgScr} alt="" />
         </ImageContainer>
-        <Title>{title}</Title>
-        <span>{numPlayers} Players</span>
-        <span>{playingTime} Min</span>
-        <span>Age: {age}</span>
-        <AdditionalContent>
-          <Heading>Keen players:</Heading>
-          <Taglist>{this.renderLikedByPlayers()}</Taglist>
-          <Heading>Owners:</Heading>
-          <Taglist>{this.renderOwnedByPlayers()}</Taglist>
-        </AdditionalContent>
+        <Content>
+          <Title>{title}</Title>
+          <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
+            <i className="fas fa-angle-down" />
+          </ToggleIcon>
+          <span>{numPlayers} Players</span>
+          <span>{playingTime} Min</span>
+          <span>Age: {age}</span>
+          <AdditionalContent className={isExpanded ? 'expand' : ''}>
+            <Heading>Keen players:</Heading>
+            <Taglist>{this.renderLikedByPlayers()}</Taglist>
+            <Heading>Owners:</Heading>
+            <Taglist>{this.renderOwnedByPlayers()}</Taglist>
+          </AdditionalContent>
+        </Content>
       </Wrapper>
     )
   }
@@ -106,6 +144,8 @@ export default class Game extends Component {
   }
 
   renderSinglePlayer = player => (
-    <li className={player.ownsGame ? 'owns' : ''}>{player.name}</li>
+    <li key={player.key} className={player.ownsGame ? 'owns' : ''}>
+      {player.name}
+    </li>
   )
 }
