@@ -5,20 +5,17 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import { Button, Welcome } from '@storybook/react/demo'
+import StyleBox from './StyleBox'
+import Game from '../components/Game'
 
-storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome showApp={linkTo('Button')} />
+storiesOf('Game', module).add('default', () => (
+  <React.Fragment>
+    <Game
+      title={text('Game title:', 'The Settlers of Catan')}
+      numPlayers={text('Number of players', '2-3')}
+      playingTime={text('Game duration:', '60-120')}
+      age={text('Age:', '10+')}
+    />
+    {/* <StyleBox h={40} /> */}
+  </React.Fragment>
 ))
-
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
-  ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ))
