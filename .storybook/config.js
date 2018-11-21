@@ -5,6 +5,7 @@ import { withOptions } from '@storybook/addon-options'
 import React from 'react'
 import GlobalStyle from '../src/components/GlobalStyle'
 import StyleBox from '../src/stories/StyleBox'
+import { Wrapper } from '../src/components/App'
 
 addDecorator(withKnobs)
 
@@ -86,16 +87,12 @@ addDecorator(
   })
 )
 
-// addDecorator(story => (
-//   <StyleBox
-//     p="20px 25%"
-//     m="0 0 20px 0"
-//     bg="repeating-linear-gradient(-45deg, #efefef, #efefef 1px, white 1px, white 8px)"
-//   >
-//     {story()}
-//     <GlobalStyle />
-//   </StyleBox>
-// ))
+addDecorator(story => (
+  <Wrapper>
+    {story()}
+    <GlobalStyle />
+  </Wrapper>
+))
 
 function loadStories() {
   require('../src/stories')

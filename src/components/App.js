@@ -3,10 +3,11 @@ import uid from 'uid'
 import styled from 'styled-components'
 import Game from './Game'
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, 350px); */
   padding: 20px;
 `
 
@@ -133,7 +134,7 @@ export default class App extends Component {
             id: uid(),
             name: 'Jerry',
             likesGame: true,
-            ownsGame: true
+            ownsGame: false
           },
           {
             key: uid(),

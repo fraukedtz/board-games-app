@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
+  align-self: start;
   background-color: #fefefe;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -17,13 +18,12 @@ const Content = styled.section`
 
   span {
     align-items: center;
-    color: grey;
+    color: #5f6368;
     display: flex;
-    font-size: 16px;
+    font-size: 14px;
   }
 `
 const ImageContainer = styled.div`
-  /* grid-column-start: span 4; */
   line-height: 0;
   width: 100%;
 `
@@ -39,6 +39,7 @@ const Image = styled.img`
 const Title = styled.h2`
   align-items: center;
   display: flex;
+  /* font-family: 'Questrial', sans-serif; */
   grid-column-start: span 3;
   margin: 0;
 `
@@ -47,6 +48,7 @@ const ToggleIcon = styled.div`
   display: flex;
   grid-row-start: span 2;
   justify-content: center;
+  transition: transform 1s ease-in-out;
 
   i {
     font-size: 20px;
@@ -65,7 +67,7 @@ const Taglist = styled.ul`
   li {
     background: #eaeaea;
     border-radius: 5px;
-    color: #5c5c5c;
+    color: #5f6368;
     display: inline-block;
     margin: 5px 10px 5px 0;
     padding: 5px;
@@ -94,6 +96,10 @@ const Heading = styled.h4`
   margin: 0;
 `
 
+const Separator = styled.div`
+  border-top: 1px solid #dadce0;
+`
+
 export default class Game extends Component {
   render() {
     const {
@@ -119,9 +125,10 @@ export default class Game extends Component {
           <span>{playingTime} Min</span>
           <span>Age: {age}</span>
           <AdditionalContent className={isExpanded ? 'expand' : ''}>
-            <Heading>Keen players:</Heading>
+            <Separator />
+            <Heading>Keen players</Heading>
             <Taglist>{this.renderLikedByPlayers()}</Taglist>
-            <Heading>Owners:</Heading>
+            <Heading>Game owners</Heading>
             <Taglist>{this.renderOwnedByPlayers()}</Taglist>
           </AdditionalContent>
         </Content>
