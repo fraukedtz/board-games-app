@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import DefaultText from './DefaultText'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Wrapper = styled.section`
   align-self: start;
@@ -47,9 +48,6 @@ const Title = styled.h2`
 `
 
 const ToggleIcon = styled.div`
-  /* background: deeppink;
-  width: 20px;
-  height: 20px; */
   align-items: center;
   display: flex;
   grid-row-start: span 2;
@@ -121,7 +119,7 @@ export default class Player extends Component {
           </ImageContainer>
           <Title>{name}</Title>
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
-            <i className="fas fa-angle-down" />
+            <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <span>{userName}</span>
         </Content>

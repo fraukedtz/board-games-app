@@ -5,9 +5,14 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import StyleBox from './StyleBox'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+// import StyleBox from './StyleBox'
 import Game from '../components/Game'
 import Player from '../components/Player'
+
+library.add(faAngleDown)
 
 storiesOf('Game', module).add('card with text', () => (
   <React.Fragment>

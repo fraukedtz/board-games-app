@@ -6,6 +6,12 @@ import styled from 'styled-components'
 import Games from './Games'
 import Players from './Players'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faAngleDown)
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 60px auto 60px;

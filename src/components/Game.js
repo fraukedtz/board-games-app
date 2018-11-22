@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import DefaultText from './DefaultText'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Wrapper = styled.section`
   align-self: start;
@@ -51,9 +51,9 @@ const ToggleIcon = styled.div`
   justify-content: center;
   transition: transform 1s ease-in-out;
 
-  i {
+  /* i {
     font-size: 20px;
-  }
+  } */
 
   &.rotate {
     transform: rotate(180deg);
@@ -119,7 +119,7 @@ export default class Game extends Component {
         <Content>
           <Title>{title}</Title>
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
-            <i className="fas fa-angle-down" />
+            <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <span>{numPlayers} Players</span>
           <span>{playingTime} Min</span>
