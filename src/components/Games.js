@@ -272,7 +272,7 @@ export default class Games extends Component {
             key: uid(),
             id: uid(),
             name: 'Lukas',
-            likesGame: true,
+            likesGame: false,
             ownsGame: true
           },
           {
@@ -370,6 +370,96 @@ export default class Games extends Component {
             id: uid(),
             name: 'Chris',
             likesGame: true,
+            ownsGame: false
+          }
+        ]
+      },
+      {
+        key: uid(),
+        id: uid(),
+        title: 'Scrabble',
+        imgScr:
+          'https://cf.geekdo-images.com/original/img/lVqLm3lRviB_an3_gAqhvSJ6riA=/0x0/pic404651.jpg',
+        numPlayers: '2-4',
+        playingTime: '45',
+        age: '6+',
+        isExpanded: false,
+        players: [
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Frauke',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Alex',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jerry',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Tom',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Kelly',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Hans',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Jan',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Melanie',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Benno',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Lukas',
+            likesGame: false,
+            ownsGame: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            name: 'Chris',
+            likesGame: false,
             ownsGame: false
           }
         ]

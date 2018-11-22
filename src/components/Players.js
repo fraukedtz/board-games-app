@@ -49,6 +49,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: false,
             ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -86,6 +93,13 @@ export default class Players extends Component {
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
+            ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
             ownedByPlayer: false
           }
         ]
@@ -125,6 +139,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -162,6 +183,13 @@ export default class Players extends Component {
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
+            ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
             ownedByPlayer: false
           }
         ]
@@ -201,6 +229,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -238,6 +273,13 @@ export default class Players extends Component {
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
+            ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
             ownedByPlayer: false
           }
         ]
@@ -277,6 +319,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -314,6 +363,13 @@ export default class Players extends Component {
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
+            ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
             ownedByPlayer: false
           }
         ]
@@ -353,6 +409,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -389,8 +452,15 @@ export default class Players extends Component {
             key: uid(),
             id: uid(),
             title: 'Monopoly',
-            likedByPlayer: true,
+            likedByPlayer: false,
             ownedByPlayer: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       },
@@ -429,6 +499,13 @@ export default class Players extends Component {
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: true
+          },
+          {
+            key: uid(),
+            id: uid(),
+            title: 'Scrabble',
+            likedByPlayer: false,
+            ownedByPlayer: false
           }
         ]
       }

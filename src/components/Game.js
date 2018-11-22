@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import DefaultText from './DefaultText'
+
 const Wrapper = styled.section`
   align-self: start;
   background-color: #fefefe;
@@ -125,13 +127,39 @@ export default class Game extends Component {
           <AdditionalContent className={isExpanded ? 'expand' : ''}>
             <Separator />
             <Heading>Keen players</Heading>
-            <Taglist>{this.renderLikedByPlayers()}</Taglist>
+            <Taglist>
+              {this.countSelectedPlayers('like') >= 1 ? (
+                this.renderLikedByPlayers()
+              ) : (
+                <DefaultText text={'No players selected'} />
+              )}
+            </Taglist>
             <Heading>Game owners</Heading>
-            <Taglist>{this.renderOwnedByPlayers()}</Taglist>
+            <Taglist>
+              {this.countSelectedPlayers('own') >= 1 ? (
+                this.renderOwnedByPlayers()
+              ) : (
+                <DefaultText text={'No players selected'} />
+              )}
+            </Taglist>
           </AdditionalContent>
         </Content>
       </Wrapper>
     )
+  }
+
+  countSelectedPlayers(criteria) {
+    let length
+
+    if (criteria === 'like') {
+      length = this.props.data.players.filter(p => p.likesGame).length
+    } else if (criteria === 'own') {
+      length = this.props.data.players.filter(p => p.ownsGame).length
+    } else {
+      length = 0
+    }
+
+    return length
   }
 
   renderLikedByPlayers() {
