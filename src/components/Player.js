@@ -8,17 +8,6 @@ const Wrapper = styled.section`
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 `
-const ImageContainer = styled.div`
-  line-height: 0;
-  width: 100%;
-`
-
-const Image = styled.img`
-  border-radius: 5px 5px 0 0;
-  height: 120px;
-  object-fit: cover;
-  width: 100%;
-`
 
 const Content = styled.section`
   display: grid;
@@ -28,20 +17,33 @@ const Content = styled.section`
   padding: 20px;
 
   span {
-    align-items: center;
     color: #5f6368;
     display: flex;
     font-size: 14px;
   }
 `
 
+const ImageContainer = styled.div`
+  grid-row-start: span 2;
+  height: 80px;
+  width: 80px;
+`
+
+const Image = styled.img`
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+`
+
 const Title = styled.h2`
-  align-items: center;
+  align-self: flex-end;
   display: flex;
   font-family: 'Questrial', sans-serif;
-  grid-column-start: span 3;
+  grid-column-start: span 2;
   margin: 0;
 `
+
 const ToggleIcon = styled.div`
   align-items: center;
   display: flex;
@@ -64,14 +66,17 @@ const AdditionalContent = styled.section`
   grid-gap: 10px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
+  margin-bottom: 20px;
   max-height: 0;
   overflow: hidden;
+  padding: 0 20px;
   transition: max-height 1s;
 
   &.expand {
     max-height: 800px;
   }
 `
+
 const Separator = styled.div`
   border-top: 1px solid #dadce0;
 `
@@ -79,6 +84,7 @@ const Separator = styled.div`
 const Heading = styled.h4`
   margin: 0;
 `
+
 const Taglist = styled.ul`
   list-style-type: none;
   margin: 0;
@@ -98,59 +104,50 @@ const Taglist = styled.ul`
   }
 `
 
-export default class Game extends Component {
+export default class Player extends Component {
   render() {
-    const {
-      title,
-      imgScr,
-      numPlayers,
-      playingTime,
-      age,
-      isExpanded
-    } = this.props.data
+    const { name, imgScr, userName, isExpanded } = this.props.data
     const { onClick } = this.props
     return (
       <Wrapper>
-        <ImageContainer>
-          <Image src={imgScr} alt="" />
-        </ImageContainer>
         <Content>
-          <Title>{title}</Title>
+          <ImageContainer>
+            <Image src={imgScr} alt="" />
+          </ImageContainer>
+          <Title>{name}</Title>
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
             <i className="fas fa-angle-down" />
           </ToggleIcon>
-          <span>{numPlayers} Players</span>
-          <span>{playingTime} Min</span>
-          <span>Age: {age}</span>
-          <AdditionalContent className={isExpanded ? 'expand' : ''}>
-            <Separator />
-            <Heading>Keen players</Heading>
-            <Taglist>{this.renderLikedByPlayers()}</Taglist>
-            <Heading>Game owners</Heading>
-            <Taglist>{this.renderOwnedByPlayers()}</Taglist>
-          </AdditionalContent>
+          <span>{userName}</span>
         </Content>
+        <AdditionalContent className={isExpanded ? 'expand' : ''}>
+          <Separator />
+          <Heading>I like to play</Heading>
+          <Taglist>{this.renderLikedGames()}</Taglist>
+          <Heading>I own</Heading>
+          <Taglist>{this.renderOwnedGames()}</Taglist>
+        </AdditionalContent>
       </Wrapper>
     )
   }
 
-  renderLikedByPlayers() {
-    return this.props.data.players
-      .filter(p => p.likesGame)
-      .sort((a, b) => (a.name < b.name ? -1 : 1))
-      .map(this.renderSinglePlayer)
+  renderLikedGames() {
+    return this.props.data.games
+      .filter(g => g.likedByPlayer)
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleGame)
   }
 
-  renderOwnedByPlayers() {
-    return this.props.data.players
-      .filter(p => p.ownsGame)
-      .sort((a, b) => (a.name < b.name ? -1 : 1))
-      .map(this.renderSinglePlayer)
+  renderOwnedGames() {
+    return this.props.data.games
+      .filter(g => g.ownedByPlayer)
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleGame)
   }
 
-  renderSinglePlayer = player => (
-    <li key={player.key} className={player.ownsGame ? 'owns' : ''}>
-      {player.name}
+  renderSingleGame = game => (
+    <li key={game.key} className={game.ownedByPlayer ? 'owns' : ''}>
+      {game.title}
     </li>
   )
 }
