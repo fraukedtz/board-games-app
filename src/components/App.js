@@ -45,23 +45,12 @@ const Wrapper = styled.div`
     }
   }
 `
-const Header = styled.section`
-  align-items: center;
-  background: #333;
-  color: #fefefe;
-  display: flex;
-  font-family: 'Questrial', sans-serif;
-  font-size: 1.5em;
-  justify-content: center;
-  width: 100%;
-`
 
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Wrapper>
-          <Header>HEADING</Header>
           <Route exact path="/" render={() => <Games />} />
           <Route path="/players/" render={() => <Players />} />
           <nav>

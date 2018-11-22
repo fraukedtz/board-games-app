@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import uid from 'uid'
 import styled from 'styled-components'
+
 import Game from './Game'
+import Header from './Header'
 
 export const Wrapper = styled.section`
   display: grid;
@@ -468,7 +470,12 @@ export default class Games extends Component {
   }
 
   render() {
-    return <Wrapper>{this.renderAllGames()}</Wrapper>
+    return (
+      <React.Fragment>
+        <Header text={'Games'} />
+        <Wrapper>{this.renderAllGames()}</Wrapper>
+      </React.Fragment>
+    )
   }
 
   renderAllGames() {

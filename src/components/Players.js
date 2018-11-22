@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import uid from 'uid'
+
+import Header from './Header'
 import Player from './Player'
 
 export const Wrapper = styled.section`
@@ -513,7 +515,12 @@ export default class Players extends Component {
   }
 
   render() {
-    return <Wrapper>{this.renderAllPlayers()}</Wrapper>
+    return (
+      <React.Fragment>
+        <Header text={'Players'} />
+        <Wrapper>{this.renderAllPlayers()}</Wrapper>
+      </React.Fragment>
+    )
   }
 
   renderAllPlayers() {
