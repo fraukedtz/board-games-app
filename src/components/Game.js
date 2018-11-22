@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import DefaultText from './DefaultText'
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   align-self: start;
   background-color: #fefefe;
   border-radius: 5px;

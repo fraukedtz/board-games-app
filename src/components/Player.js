@@ -47,6 +47,9 @@ const Title = styled.h2`
 `
 
 const ToggleIcon = styled.div`
+  /* background: deeppink;
+  width: 20px;
+  height: 20px; */
   align-items: center;
   display: flex;
   grid-row-start: span 2;
