@@ -7,10 +7,14 @@ import Games from './Games'
 import Players from './Players'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faAngleDown,
+  faDice,
+  faChessPawn
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faAngleDown)
+library.add(faAngleDown, faDice, faChessPawn)
 
 const Wrapper = styled.div`
   display: grid;
@@ -26,6 +30,7 @@ const Wrapper = styled.div`
     background: #fefefe;
     color: #333;
     display: flex;
+    font-size: 30px;
     justify-content: center;
     text-decoration: none;
     width: 100%;
@@ -61,10 +66,10 @@ export default class App extends Component {
           <Route path="/players/" render={() => <Players />} />
           <nav>
             <NavLink exact activeClassName="active" to="/">
-              Games
+              <FontAwesomeIcon icon="dice" />
             </NavLink>
             <NavLink activeClassName="active" to="/players/">
-              Players
+              <FontAwesomeIcon icon="chess-pawn" />
             </NavLink>
           </nav>
         </Wrapper>
