@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.section`
   align-items: center;
@@ -14,7 +15,10 @@ const Wrapper = styled.section`
 `
 
 export default class Header extends Component {
+  static propTypes = {
+    text: PropTypes.string
+  }
   render() {
-    return <Wrapper>{this.props.text}</Wrapper>
+    return <Wrapper data-cy="Header">{this.props.text}</Wrapper>
   }
 }

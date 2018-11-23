@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import DefaultText from './DefaultText'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PropTypes from 'prop-types'
 
 export const Wrapper = styled.section`
   align-self: start;
@@ -101,6 +102,21 @@ const Taglist = styled.ul`
 `
 
 export default class Game extends Component {
+  static propTypes = {
+    title: PropTypes.string,
+    imgScr: PropTypes.string,
+    numPlayers: PropTypes.string,
+    playingTime: PropTypes.string,
+    age: PropTypes.string,
+    isExpanded: PropTypes.bool,
+    onClick: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    imgScr:
+      'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg'
+  }
+
   render() {
     const {
       title,
@@ -108,9 +124,10 @@ export default class Game extends Component {
       numPlayers,
       playingTime,
       age,
-      isExpanded
-    } = this.props.data
-    const { onClick } = this.props
+      isExpanded,
+      onClick
+    } = this.props
+
     return (
       <Wrapper>
         <ImageContainer>
@@ -152,9 +169,9 @@ export default class Game extends Component {
     let length
 
     if (criteria === 'like') {
-      length = this.props.data.players.filter(p => p.likesGame).length
+      length = this.props.players.filter(p => p.likesGame).length
     } else if (criteria === 'own') {
-      length = this.props.data.players.filter(p => p.ownsGame).length
+      length = this.props.players.filter(p => p.ownsGame).length
     } else {
       length = 0
     }
@@ -163,14 +180,14 @@ export default class Game extends Component {
   }
 
   renderLikedByPlayers() {
-    return this.props.data.players
+    return this.props.players
       .filter(p => p.likesGame)
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)
   }
 
   renderOwnedByPlayers() {
-    return this.props.data.players
+    return this.props.players
       .filter(p => p.ownsGame)
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)

@@ -485,11 +485,7 @@ export default class Games extends Component {
   }
 
   renderSingleGame = game => (
-    <Game
-      key={game.key}
-      data={game}
-      onClick={() => this.toggleExpand(game.id)}
-    />
+    <Game key={game.key} {...game} onClick={() => this.toggleExpand(game.id)} />
   )
 
   toggleExpand = id => {

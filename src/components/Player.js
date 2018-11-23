@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import PropTypes from 'prop-types'
 import DefaultText from './DefaultText'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -108,9 +108,21 @@ const Taglist = styled.ul`
 `
 
 export default class Player extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    imgScr: PropTypes.string,
+    userName: PropTypes.string,
+    isExpanded: PropTypes.bool,
+    onClick: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    imgScr:
+      'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg'
+  }
+
   render() {
-    const { name, imgScr, userName, isExpanded } = this.props.data
-    const { onClick } = this.props
+    const { name, imgScr, userName, isExpanded, onClick } = this.props
     return (
       <Wrapper>
         <Content>
@@ -150,9 +162,9 @@ export default class Player extends Component {
     let length
 
     if (criteria === 'like') {
-      length = this.props.data.games.filter(g => g.likedByPlayer).length
+      length = this.props.games.filter(g => g.likedByPlayer).length
     } else if (criteria === 'own') {
-      length = this.props.data.games.filter(g => g.ownedByPlayer).length
+      length = this.props.games.filter(g => g.ownedByPlayer).length
     } else {
       length = 0
     }
@@ -161,14 +173,14 @@ export default class Player extends Component {
   }
 
   renderLikedGames() {
-    return this.props.data.games
+    return this.props.games
       .filter(g => g.likedByPlayer)
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)
   }
 
   renderOwnedGames() {
-    return this.props.data.games
+    return this.props.games
       .filter(g => g.ownedByPlayer)
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)

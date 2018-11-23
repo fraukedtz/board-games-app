@@ -470,7 +470,7 @@ export default class Players extends Component {
         key: uid(),
         id: uid(),
         name: 'Chris',
-        imgScr: 'https://source.unsplash.com/1600x900/?city',
+        imgScr: 'https://source.unsplash.com/1600x900/?business',
         userName: '@chris',
         isExpanded: false,
         games: [
@@ -532,7 +532,7 @@ export default class Players extends Component {
   renderSinglePlayer = player => (
     <Player
       key={player.key}
-      data={player}
+      {...player}
       onClick={() => this.toggleExpand(player.id)}
     />
   )
