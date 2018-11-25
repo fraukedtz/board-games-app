@@ -54,10 +54,6 @@ const ToggleIcon = styled.div`
   justify-content: center;
   transition: transform 1s ease-in-out;
 
-  i {
-    font-size: 20px;
-  }
-
   &.rotate {
     transform: rotate(180deg);
   }

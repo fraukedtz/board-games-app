@@ -23,12 +23,14 @@ const Wrapper = styled.div`
 
   nav {
     display: flex;
+    position: sticky;
+    bottom: 0;
   }
 
   a:any-link {
     align-items: center;
-    background: #fefefe;
-    color: #333;
+    background: #333;
+    color: #7f7f7f;
     display: flex;
     font-size: 30px;
     justify-content: center;
@@ -36,11 +38,10 @@ const Wrapper = styled.div`
     width: 100%;
 
     &:first-child {
-      border-right: 1px solid white;
+      /* border-right: 1px solid white; */
     }
 
     &.active {
-      background: #333;
       color: #fefefe;
     }
   }
