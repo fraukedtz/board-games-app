@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import DefaultText from './DefaultText'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components'
 
-export const Wrapper = styled.section`
-  align-self: start;
-  background-color: #fefefe;
-  border-radius: 5px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-`
+import Card from './styledcomponents/Card'
+import GameDetails from './styledcomponents/GameDetails'
+import ToggleIcon from './ui/ToggleIcon'
+import Separator from './styledcomponents/Separator'
+import TagListHeading from './ui/TagListHeading'
+import TagList from './styledcomponents/TagList'
+import CardContent from './styledcomponents/CardContent'
+import CardTitle from './ui/CardTitle'
+
 const ImageContainer = styled.div`
   line-height: 0;
   width: 100%;
@@ -23,39 +24,13 @@ const Image = styled.img`
   width: 100%;
 `
 
-const Content = styled.section`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  grid-template-rows: auto;
-  padding: 20px;
-
-  span {
-    align-items: center;
-    color: #5f6368;
-    display: flex;
-    font-size: 14px;
-  }
-`
-
-const Title = styled.h2`
-  align-items: center;
-  display: flex;
-  font-family: 'Questrial', sans-serif;
-  grid-column-start: span 3;
-  margin: 0;
-`
-const ToggleIcon = styled.div`
-  align-items: center;
-  display: flex;
-  grid-row-start: span 2;
-  justify-content: center;
-  transition: transform 1s ease-in-out;
-
-  &.rotate {
-    transform: rotate(180deg);
-  }
-`
+// const Title = styled.h2`
+//   align-items: center;
+//   display: flex;
+//   font-family: 'Questrial', sans-serif;
+//   grid-column-start: span 3;
+//   margin: 0;
+// `
 
 const AdditionalContent = styled.section`
   display: grid;
@@ -65,46 +40,21 @@ const AdditionalContent = styled.section`
   grid-template-rows: 1fr auto;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s;
+  transition: max-height 0.3s;
 
   &.expand {
     max-height: 800px;
   }
 `
-const Separator = styled.div`
-  border-top: 1px solid #dadce0;
-`
 
-const Heading = styled.h4`
-  margin: 0;
-`
-const Taglist = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    background: #eaeaea;
-    border-radius: 5px;
-    color: #5f6368;
-    display: inline-block;
-    margin: 5px 10px 5px 0;
-    padding: 5px;
-  }
-
-  .owns {
-    background: #dff6fc;
-  }
-`
-
-export default class Game extends Component {
+export default class GameCard extends Component {
   static propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     imgScr: PropTypes.string,
-    numPlayers: PropTypes.string,
-    playingTime: PropTypes.string,
-    age: PropTypes.string,
-    isExpanded: PropTypes.bool,
+    numPlayers: PropTypes.string.isRequired,
+    playingTime: PropTypes.string.isRequired,
+    age: PropTypes.string.isRequired,
+    isExpanded: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
   }
 
@@ -125,39 +75,39 @@ export default class Game extends Component {
     } = this.props
 
     return (
-      <Wrapper>
+      <Card>
         <ImageContainer>
           <Image src={imgScr} alt="" />
         </ImageContainer>
-        <Content>
-          <Title>{title}</Title>
+        <CardContent>
+          <CardTitle text={title} width="3" />
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
-          <span>{numPlayers} Players</span>
-          <span>{playingTime} Min</span>
-          <span>Age: {age}</span>
+          <GameDetails>{numPlayers} Players</GameDetails>
+          <GameDetails>{playingTime} Min</GameDetails>
+          <GameDetails>Age: {age}</GameDetails>
           <AdditionalContent className={isExpanded ? 'expand' : ''}>
             <Separator />
-            <Heading>Keen players</Heading>
-            <Taglist>
+            <TagListHeading text="Keen players" />
+            <TagList>
               {this.countSelectedPlayers('like') >= 1 ? (
                 this.renderLikedByPlayers()
               ) : (
-                <DefaultText text={'No players selected'} />
+                <span>No players selected</span>
               )}
-            </Taglist>
-            <Heading>Game owners</Heading>
-            <Taglist>
+            </TagList>
+            <TagListHeading text="Game owners" />
+            <TagList>
               {this.countSelectedPlayers('own') >= 1 ? (
                 this.renderOwnedByPlayers()
               ) : (
-                <DefaultText text={'No players selected'} />
+                <span>No players selected</span>
               )}
-            </Taglist>
+            </TagList>
           </AdditionalContent>
-        </Content>
-      </Wrapper>
+        </CardContent>
+      </Card>
     )
   }
 

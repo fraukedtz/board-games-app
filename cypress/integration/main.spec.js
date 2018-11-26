@@ -54,7 +54,7 @@ describe('Navigation', () => {
 
   it('changes path on Players click', () => {
     cy.get('nav > a')
-      .contains('Games')
+      .find('.fa-chess-pawn')
       .click()
 
     cy.url().should('contain', '/players')

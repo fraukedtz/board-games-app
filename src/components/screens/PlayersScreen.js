@@ -1,23 +1,14 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import uid from 'uid'
 
-import Header from './Header'
-import Player from './Player'
+import Header from '../Header'
+import CardsContainer from '../styledcomponents/CardsContainer'
+import PlayerCard from '../PlayerCard'
 
-export const Wrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  /* grid-template-columns: repeat(auto-fill, 350px); */
-  padding: 20px;
-`
-
-export default class Players extends Component {
+export default class PlayersScreen extends Component {
   state = {
     players: [
       {
-        key: uid(),
         id: uid(),
         name: 'Frauke',
         imgScr: 'https://source.unsplash.com/1600x900/?cat',
@@ -25,35 +16,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: false,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -62,7 +48,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Alex',
         imgScr: 'https://source.unsplash.com/1600x900/?beach',
@@ -70,35 +55,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -107,7 +87,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Jerry',
         imgScr: 'https://source.unsplash.com/1600x900/?developer',
@@ -115,35 +94,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -152,7 +126,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Tom',
         imgScr: 'https://source.unsplash.com/1600x900/?dog',
@@ -160,35 +133,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: false,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -197,7 +165,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Kelly',
         imgScr: 'https://source.unsplash.com/1600x900/?ocean',
@@ -205,35 +172,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -242,7 +204,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Hans',
         imgScr: 'https://source.unsplash.com/1600x900/?autumn',
@@ -250,35 +211,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -287,7 +243,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Jan',
         imgScr: 'https://source.unsplash.com/1600x900/?creative',
@@ -295,35 +250,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: false,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: false,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -332,7 +282,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Melanie',
         imgScr: 'https://source.unsplash.com/1600x900/?summer',
@@ -340,35 +289,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -377,7 +321,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Benno',
         imgScr: 'https://source.unsplash.com/1600x900/?nature',
@@ -385,35 +328,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -422,7 +360,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Lukas',
         imgScr: 'https://source.unsplash.com/1600x900/?sport',
@@ -430,35 +367,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: false,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: false,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: false,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: false,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -467,7 +399,6 @@ export default class Players extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         name: 'Chris',
         imgScr: 'https://source.unsplash.com/1600x900/?business',
@@ -475,35 +406,30 @@ export default class Players extends Component {
         isExpanded: false,
         games: [
           {
-            key: uid(),
             id: uid(),
             title: 'The Settlers of Catan',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'UNO',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Qwirkle',
             likedByPlayer: true,
             ownedByPlayer: false
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Monopoly',
             likedByPlayer: true,
             ownedByPlayer: true
           },
           {
-            key: uid(),
             id: uid(),
             title: 'Scrabble',
             likedByPlayer: false,
@@ -518,7 +444,7 @@ export default class Players extends Component {
     return (
       <React.Fragment>
         <Header text={'Players'} />
-        <Wrapper>{this.renderAllPlayers()}</Wrapper>
+        <CardsContainer>{this.renderAllPlayers()}</CardsContainer>
       </React.Fragment>
     )
   }
@@ -530,8 +456,8 @@ export default class Players extends Component {
   }
 
   renderSinglePlayer = player => (
-    <Player
-      key={player.key}
+    <PlayerCard
+      key={player.id}
       {...player}
       onClick={() => this.toggleExpand(player.id)}
     />

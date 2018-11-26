@@ -9,15 +9,15 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 // import StyleBox from './StyleBox'
-import Game from '../components/Game'
-import Player from '../components/Player'
+import GameCard from '../components/GameCard'
+import PlayerCard from '../components/PlayerCard'
 
 library.add(faAngleDown)
 
-storiesOf('Game', module).add('card with text', () => (
+storiesOf('GameCard', module).add('card with text', () => (
   <React.Fragment>
     {/* <StyleBox h={400} /> */}
-    <Game
+    <GameCard
       title={text('Game title', 'The Settlers of Catan')}
       imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players', '2-3')}
@@ -34,7 +34,7 @@ storiesOf('Game', module).add('card with text', () => (
         { name: 'Chris', likesGame: true, ownsGame: false }
       ])}
     />
-    <Game
+    <GameCard
       title={text('Game title2', 'The Settlers of Catan')}
       imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players2', '2-3')}
@@ -51,7 +51,7 @@ storiesOf('Game', module).add('card with text', () => (
         { name: 'Chris', likesGame: true, ownsGame: false }
       ])}
     />
-    <Game
+    <GameCard
       title={text('Game title3', 'The Settlers of Catan')}
       imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players3', '2-3')}
@@ -64,10 +64,10 @@ storiesOf('Game', module).add('card with text', () => (
   </React.Fragment>
 ))
 
-storiesOf('Player', module).add('card with text', () => (
+storiesOf('PlayerCard', module).add('card with text', () => (
   <React.Fragment>
     {/* <StyleBox h={400} /> */}
-    <Player
+    <PlayerCard
       onClick={action('onClick')}
       name={text('Player name', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
@@ -101,7 +101,7 @@ storiesOf('Player', module).add('card with text', () => (
         }
       ])}
     />
-    <Player
+    <PlayerCard
       onClick={action('onClick2')}
       name={text('Player name2', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
@@ -135,7 +135,7 @@ storiesOf('Player', module).add('card with text', () => (
         }
       ])}
     />
-    <Player
+    <PlayerCard
       onClick={action('onClick3')}
       name={text('Player name3', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
