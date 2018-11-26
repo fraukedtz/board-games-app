@@ -1,23 +1,14 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import styled from 'styled-components'
 
-import Game from './Game'
-import Header from './Header'
+import Header from '../Header'
+import CardsContainer from '../styledcomponents/CardsContainer'
+import GameCard from '../GameCard'
 
-export const Wrapper = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  /* grid-template-columns: repeat(auto-fill, 350px); */
-  padding: 20px;
-`
-
-export default class Games extends Component {
+export default class GamesScreen extends Component {
   state = {
     games: [
       {
-        key: uid(),
         id: uid(),
         title: 'The Settlers of Catan',
         imgScr:
@@ -28,77 +19,66 @@ export default class Games extends Component {
         isExpanded: false,
         players: [
           {
-            key: uid(),
             id: uid(),
             name: 'Frauke',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Alex',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jerry',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Tom',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Kelly',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Hans',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jan',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Melanie',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Benno',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Lukas',
             likesGame: false,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Chris',
             likesGame: true,
@@ -107,7 +87,6 @@ export default class Games extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         title: 'UNO',
         imgScr:
@@ -118,77 +97,66 @@ export default class Games extends Component {
         isExpanded: false,
         players: [
           {
-            key: uid(),
             id: uid(),
             name: 'Frauke',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Alex',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jerry',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Tom',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Kelly',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Hans',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jan',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Melanie',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Benno',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Lukas',
             likesGame: false,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Chris',
             likesGame: true,
@@ -197,7 +165,6 @@ export default class Games extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         title: 'Monopoly',
         imgScr:
@@ -208,77 +175,66 @@ export default class Games extends Component {
         isExpanded: false,
         players: [
           {
-            key: uid(),
             id: uid(),
             name: 'Frauke',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Alex',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jerry',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Tom',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Kelly',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Hans',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jan',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Melanie',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Benno',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Lukas',
             likesGame: false,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Chris',
             likesGame: true,
@@ -287,7 +243,6 @@ export default class Games extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         title: 'Qwirkle',
         imgScr:
@@ -298,77 +253,66 @@ export default class Games extends Component {
         isExpanded: false,
         players: [
           {
-            key: uid(),
             id: uid(),
             name: 'Frauke',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Alex',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jerry',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Tom',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Kelly',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Hans',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jan',
             likesGame: true,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Melanie',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Benno',
             likesGame: true,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Lukas',
             likesGame: false,
             ownsGame: true
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Chris',
             likesGame: true,
@@ -377,7 +321,6 @@ export default class Games extends Component {
         ]
       },
       {
-        key: uid(),
         id: uid(),
         title: 'Scrabble',
         imgScr:
@@ -388,77 +331,66 @@ export default class Games extends Component {
         isExpanded: false,
         players: [
           {
-            key: uid(),
             id: uid(),
             name: 'Frauke',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Alex',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jerry',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Tom',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Kelly',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Hans',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Jan',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Melanie',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Benno',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Lukas',
             likesGame: false,
             ownsGame: false
           },
           {
-            key: uid(),
             id: uid(),
             name: 'Chris',
             likesGame: false,
@@ -473,7 +405,7 @@ export default class Games extends Component {
     return (
       <React.Fragment>
         <Header text={'Games'} />
-        <Wrapper>{this.renderAllGames()}</Wrapper>
+        <CardsContainer>{this.renderAllGames()}</CardsContainer>
       </React.Fragment>
     )
   }
@@ -485,7 +417,11 @@ export default class Games extends Component {
   }
 
   renderSingleGame = game => (
-    <Game key={game.key} {...game} onClick={() => this.toggleExpand(game.id)} />
+    <GameCard
+      key={game.id}
+      {...game}
+      onClick={() => this.toggleExpand(game.id)}
+    />
   )
 
   toggleExpand = id => {

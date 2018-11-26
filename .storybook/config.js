@@ -5,7 +5,7 @@ import { withOptions } from '@storybook/addon-options'
 import React from 'react'
 import GlobalStyle from '../src/components/GlobalStyle'
 import StyleBox from '../src/stories/StyleBox'
-import { Wrapper } from '../src/components/Games'
+import CardsContainer from '../src/components/styledcomponents/CardsContainer'
 
 addDecorator(withKnobs)
 
@@ -88,10 +88,10 @@ addDecorator(
 )
 
 addDecorator(story => (
-  <Wrapper>
+  <CardsContainer>
     {story()}
     <GlobalStyle />
-  </Wrapper>
+  </CardsContainer>
 ))
 
 function loadStories() {

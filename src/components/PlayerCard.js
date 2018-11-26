@@ -1,30 +1,14 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import DefaultText from './DefaultText'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components'
 
-const Wrapper = styled.section`
-  align-self: start;
-  background-color: #fefefe;
-  border-radius: 5px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-`
-
-const Content = styled.section`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  grid-template-rows: auto;
-  padding: 20px;
-
-  span {
-    color: #5f6368;
-    display: flex;
-    font-size: 14px;
-  }
-`
+import Card from './styledcomponents/Card'
+import ToggleIcon from './ui/ToggleIcon'
+import Separator from './styledcomponents/Separator'
+import TagListHeading from './ui/TagListHeading'
+import TagList from './styledcomponents/TagList'
+import CardContent from './styledcomponents/CardContent'
 
 const ImageContainer = styled.div`
   grid-row-start: span 2;
@@ -39,6 +23,12 @@ const Image = styled.img`
   width: 100%;
 `
 
+const Username = styled.span`
+  color: #5f6368;
+  display: flex;
+  font-size: 14px;
+`
+
 const Title = styled.h2`
   align-self: flex-end;
   display: flex;
@@ -47,68 +37,29 @@ const Title = styled.h2`
   margin: 0;
 `
 
-const ToggleIcon = styled.div`
-  align-items: center;
-  display: flex;
-  grid-row-start: span 2;
-  justify-content: center;
-  transition: transform 1s ease-in-out;
-
-  &.rotate {
-    transform: rotate(180deg);
-  }
-`
-
 const AdditionalContent = styled.section`
   display: grid;
   grid-column-start: span 4;
   grid-gap: 10px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   max-height: 0;
   overflow: hidden;
-  padding: 0 20px;
-  transition: max-height 1s;
+  /* padding: 0 20px; */
+  transition: max-height 0.3s;
 
   &.expand {
     max-height: 800px;
   }
 `
 
-const Separator = styled.div`
-  border-top: 1px solid #dadce0;
-`
-
-const Heading = styled.h4`
-  margin: 0;
-`
-
-const Taglist = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    background: #eaeaea;
-    border-radius: 5px;
-    color: #5f6368;
-    display: inline-block;
-    margin: 5px 10px 5px 0;
-    padding: 5px;
-  }
-
-  .owns {
-    background: #dff6fc;
-  }
-`
-
-export default class Player extends Component {
+export default class PlayerCard extends Component {
   static propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     imgScr: PropTypes.string,
-    userName: PropTypes.string,
-    isExpanded: PropTypes.bool,
+    userName: PropTypes.string.isRequired,
+    isExpanded: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
   }
 
@@ -120,8 +71,8 @@ export default class Player extends Component {
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
     return (
-      <Wrapper>
-        <Content>
+      <Card>
+        <CardContent>
           <ImageContainer>
             <Image src={imgScr} alt="" />
           </ImageContainer>
@@ -129,28 +80,29 @@ export default class Player extends Component {
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
-          <span>{userName}</span>
-        </Content>
-        <AdditionalContent className={isExpanded ? 'expand' : ''}>
-          <Separator />
-          <Heading>I like to play</Heading>
-          <Taglist>
-            {this.countSelectedGames('like') >= 1 ? (
-              this.renderLikedGames()
-            ) : (
-              <DefaultText text={'No games selected'} />
-            )}
-          </Taglist>
-          <Heading>I own</Heading>
-          <Taglist>
-            {this.countSelectedGames('own') >= 1 ? (
-              this.renderOwnedGames()
-            ) : (
-              <DefaultText text={'No games selected'} />
-            )}
-          </Taglist>
-        </AdditionalContent>
-      </Wrapper>
+          <Username>{userName}</Username>
+          {/* </CardContent> */}
+          <AdditionalContent className={isExpanded ? 'expand' : ''}>
+            <Separator />
+            <TagListHeading text="I like to play" />
+            <TagList>
+              {this.countSelectedGames('like') >= 1 ? (
+                this.renderLikedGames()
+              ) : (
+                <span>No games selected</span>
+              )}
+            </TagList>
+            <TagListHeading text="I own" />
+            <TagList>
+              {this.countSelectedGames('own') >= 1 ? (
+                this.renderOwnedGames()
+              ) : (
+                <span>No games selected</span>
+              )}
+            </TagList>
+          </AdditionalContent>
+        </CardContent>
+      </Card>
     )
   }
 
