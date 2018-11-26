@@ -4,6 +4,10 @@ describe('App', () => {
     cy.clearLocalStorage()
   })
 
+  it('successfully loads', function() {
+    cy.visit('http://localhost:3000')
+  })
+
   it('has the right title', () => {
     cy.title().should('eq', 'Board Games App')
   })
@@ -44,11 +48,27 @@ describe('Navigation', () => {
     cy.get('nav > a').should('have.length', 2)
   })
 
+  it('has active button', () => {
+    cy.get('nav > a').should('have.class', 'active')
+  })
+
   it('changes path on Players click', () => {
     cy.get('nav > a')
       .contains('Games')
       .click()
 
     cy.url().should('contain', '/players')
+  })
+})
+
+describe('Navigate to players', function() {
+  it('successfully loads players', function() {
+    cy.visit('http://localhost:3000/players/')
+  })
+})
+
+describe('Navigate to games', function() {
+  it('Visit games', function() {
+    cy.visit('http://localhost:3000')
   })
 })
