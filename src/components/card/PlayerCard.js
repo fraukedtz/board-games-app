@@ -34,8 +34,19 @@ const Title = styled.h2`
   align-self: flex-end;
   display: flex;
   font-family: 'Questrial', sans-serif;
-  grid-column-start: span 2;
+  grid-column-start: span 1;
   margin: 0;
+`
+const BookmarkIcon = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  grid-row-start: span 2;
+  justify-content: center;
+
+  &.bookmarked {
+    color: deeppink;
+  }
 `
 
 export default class PlayerCard extends Component {
@@ -53,7 +64,15 @@ export default class PlayerCard extends Component {
   }
 
   render() {
-    const { name, imgScr, userName, isExpanded, onClick } = this.props
+    const {
+      name,
+      imgScr,
+      userName,
+      isExpanded,
+      isBookmarked,
+      onClick,
+      onClickBookmark
+    } = this.props
     return (
       <Card>
         <CardContent>
@@ -61,6 +80,13 @@ export default class PlayerCard extends Component {
             <Image src={imgScr} alt="" />
           </ImageContainer>
           <Title>{name}</Title>
+          <BookmarkIcon
+            data-cy="Bookmark"
+            onClick={onClickBookmark}
+            className={isBookmarked ? 'bookmarked' : ''}
+          >
+            <FontAwesomeIcon icon="star" />
+          </BookmarkIcon>
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>

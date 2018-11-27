@@ -14,6 +14,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?cat',
         userName: '@frauks',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -53,6 +54,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?beach',
         userName: '@alex',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -92,6 +94,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?developer',
         userName: '@jerry',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -131,6 +134,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?dog',
         userName: '@tom',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -170,6 +174,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?ocean',
         userName: '@kelly',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -209,6 +214,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?autumn',
         userName: '@hans',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -248,6 +254,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?creative',
         userName: '@jan',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -287,6 +294,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?summer',
         userName: '@melanie',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -326,6 +334,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?nature',
         userName: '@benno',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -365,6 +374,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?sport',
         userName: '@lukas',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -404,6 +414,7 @@ export default class PlayersScreen extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?business',
         userName: '@chris',
         isExpanded: false,
+        isBookmarked: false,
         games: [
           {
             id: uid(),
@@ -460,6 +471,7 @@ export default class PlayersScreen extends Component {
       key={player.id}
       {...player}
       onClick={() => this.toggleExpand(player.id)}
+      onClickBookmark={() => this.toggleBookmark(player.id)}
     />
   )
 
@@ -470,6 +482,20 @@ export default class PlayersScreen extends Component {
     const updatedPlayers = [
       ...players.slice(0, index),
       { ...player, isExpanded: !player.isExpanded },
+      ...players.slice(index + 1)
+    ]
+    this.setState({
+      players: updatedPlayers
+    })
+  }
+
+  toggleBookmark = id => {
+    const { players } = this.state
+    const index = players.findIndex(p => p.id === id)
+    const player = players[index]
+    const updatedPlayers = [
+      ...players.slice(0, index),
+      { ...player, isBookmarked: !player.isBookmarked },
       ...players.slice(index + 1)
     ]
     this.setState({

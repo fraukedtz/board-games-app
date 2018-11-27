@@ -7,10 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAngleDown,
   faDice,
-  faChessPawn
+  faChessPawn,
+  faStar
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faAngleDown, faDice, faChessPawn)
+library.add(faAngleDown, faDice, faChessPawn, faStar)
 
 const Nav = styled.nav`
   display: flex;

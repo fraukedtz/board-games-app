@@ -6,13 +6,13 @@ import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faStar } from '@fortawesome/free-solid-svg-icons'
 
 // import StyleBox from './StyleBox'
-import GameCard from '../components/GameCard'
-import PlayerCard from '../components/PlayerCard'
+import GameCard from '../components/card/GameCard'
+import PlayerCard from '../components/card/PlayerCard'
 
-library.add(faAngleDown)
+library.add(faAngleDown, faStar)
 
 storiesOf('GameCard', module).add('card with text', () => (
   <React.Fragment>
@@ -68,11 +68,13 @@ storiesOf('PlayerCard', module).add('card with text', () => (
   <React.Fragment>
     {/* <StyleBox h={400} /> */}
     <PlayerCard
-      onClick={action('onClick')}
       name={text('Player name', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
-      userName={text('Username', '@Kelly')}
-      isExpanded={boolean('Expand/Collapse', false)}
+      userName={text('Username', '@chris')}
+      isExpanded={boolean('isExpanded', false)}
+      onClick={action('onClick')}
+      isBookmarked={boolean('isBookmarked', true)}
+      onClickBookmark={action('onClickBookmark')}
       games={array('Games', [
         {
           title: 'The Settlers of Catan',
@@ -102,11 +104,13 @@ storiesOf('PlayerCard', module).add('card with text', () => (
       ])}
     />
     <PlayerCard
-      onClick={action('onClick2')}
       name={text('Player name2', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
-      userName={text('Username2', '@Kelly')}
-      isExpanded={boolean('Expand/Collapse2', true)}
+      userName={text('Username2', '@chris')}
+      isExpanded={boolean('isExpanded2', true)}
+      onClick={action('onClick2')}
+      isBookmarked={boolean('isBookmarked2', false)}
+      onClickBookmark={action('onClickBookmark2')}
       games={array('Games2', [
         {
           title: 'The Settlers of Catan',
@@ -136,11 +140,13 @@ storiesOf('PlayerCard', module).add('card with text', () => (
       ])}
     />
     <PlayerCard
-      onClick={action('onClick3')}
       name={text('Player name3', 'Chris')}
       imgScr="https://source.unsplash.com/1600x900/?city"
-      userName={text('Username3', '@Kelly')}
-      isExpanded={boolean('Expand/Collapse3', true)}
+      userName={text('Username3', '@chris')}
+      isExpanded={boolean('isExpanded3', true)}
+      onClick={action('onClick3')}
+      isBookmarked={boolean('isBookmarked3', false)}
+      onClickBookmark={action('onClickBookmark3')}
       games={array('Games3', [])}
     />
   </React.Fragment>

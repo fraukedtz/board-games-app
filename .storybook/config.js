@@ -5,7 +5,7 @@ import { withOptions } from '@storybook/addon-options'
 import React from 'react'
 import GlobalStyle from '../src/components/GlobalStyle'
 import StyleBox from '../src/stories/StyleBox'
-import CardsContainer from '../src/components/styledcomponents/CardsContainer'
+import CardsContainer from '../src/components/card/CardsContainer'
 
 addDecorator(withKnobs)
 
