@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import uid from 'uid'
 
 import Header from '../Header'
-import CardsContainer from '../styledcomponents/CardsContainer'
-import GameCard from '../GameCard'
+import CardsContainer from '../card/CardsContainer'
+import GameCard from '../card/GameCard'
 
 export default class GamesScreen extends Component {
   state = {

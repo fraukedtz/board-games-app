@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
-import Card from './styledcomponents/Card'
-import GameDetails from './styledcomponents/GameDetails'
-import ToggleIcon from './ui/ToggleIcon'
-import Separator from './styledcomponents/Separator'
-import TagListHeading from './ui/TagListHeading'
-import TagList from './styledcomponents/TagList'
-import CardContent from './styledcomponents/CardContent'
-import CardTitle from './ui/CardTitle'
+import Card from './Card'
+import GameDetails from '../styledcomponents/GameDetails'
+import ToggleIcon from './ToggleIcon'
+import Separator from './Separator'
+import TagListHeading from './TagListHeading'
+import TagList from './TagList'
+import CardContent from './CardContent'
+// import CardTitle from './CardTitle'
+import ExpandCardContent from './ExpandCardContent'
 
 const ImageContainer = styled.div`
   line-height: 0;
@@ -24,27 +25,12 @@ const Image = styled.img`
   width: 100%;
 `
 
-// const Title = styled.h2`
-//   align-items: center;
-//   display: flex;
-//   font-family: 'Questrial', sans-serif;
-//   grid-column-start: span 3;
-//   margin: 0;
-// `
-
-const AdditionalContent = styled.section`
-  display: grid;
-  grid-column-start: span 4;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s;
-
-  &.expand {
-    max-height: 800px;
-  }
+const Title = styled.h2`
+  align-items: center;
+  display: flex;
+  font-family: 'Questrial', sans-serif;
+  grid-column-start: span 3;
+  margin: 0;
 `
 
 export default class GameCard extends Component {
@@ -80,14 +66,14 @@ export default class GameCard extends Component {
           <Image src={imgScr} alt="" />
         </ImageContainer>
         <CardContent>
-          <CardTitle text={title} width="3" />
+          <Title>{title}</Title>
           <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <GameDetails>{numPlayers} Players</GameDetails>
           <GameDetails>{playingTime} Min</GameDetails>
           <GameDetails>Age: {age}</GameDetails>
-          <AdditionalContent className={isExpanded ? 'expand' : ''}>
+          <ExpandCardContent className={isExpanded ? 'expand' : ''}>
             <Separator />
             <TagListHeading text="Keen players" />
             <TagList>
@@ -105,7 +91,7 @@ export default class GameCard extends Component {
                 <span>No players selected</span>
               )}
             </TagList>
-          </AdditionalContent>
+          </ExpandCardContent>
         </CardContent>
       </Card>
     )
