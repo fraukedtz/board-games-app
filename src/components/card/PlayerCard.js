@@ -33,7 +33,8 @@ const Username = styled.span`
 const Title = styled.h2`
   align-self: flex-end;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
+  font-family: 'Muli', sans-serif;
   grid-column-start: span 2;
   margin: 0;
 `
@@ -55,17 +56,24 @@ export default class PlayerCard extends Component {
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
     return (
-      <Card>
+      <Card data-cy="PlayerCard">
         <CardContent>
           <ImageContainer>
             <Image src={imgScr} alt="" />
           </ImageContainer>
           <Title>{name}</Title>
-          <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
+          <ToggleIcon
+            data-cy="Toggle"
+            onClick={onClick}
+            className={isExpanded ? 'rotate' : ''}
+          >
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <Username>{userName}</Username>
-          <ExpandCardContent className={isExpanded ? 'expand' : ''}>
+          <ExpandCardContent
+            data-cy="ExpandContent"
+            className={isExpanded ? 'expand' : ''}
+          >
             <Separator />
             <TagListHeading text="I like to play" />
             <TagList>

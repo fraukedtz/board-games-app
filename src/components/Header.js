@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   background: #333;
   color: #fefefe;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   font-size: 1.5em;
   font-weight: bold;
   justify-content: center;

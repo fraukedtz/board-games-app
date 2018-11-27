@@ -28,7 +28,7 @@ const Image = styled.img`
 const Title = styled.h2`
   align-items: center;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   grid-column-start: span 3;
   margin: 0;
 `
@@ -61,19 +61,26 @@ export default class GameCard extends Component {
     } = this.props
 
     return (
-      <Card>
+      <Card data-cy="GameCard">
         <ImageContainer>
           <Image src={imgScr} alt="" />
         </ImageContainer>
         <CardContent>
           <Title>{title}</Title>
-          <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
+          <ToggleIcon
+            data-cy="Toggle"
+            onClick={onClick}
+            className={isExpanded ? 'rotate' : ''}
+          >
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <GameDetails>{numPlayers} Players</GameDetails>
           <GameDetails>{playingTime} Min</GameDetails>
           <GameDetails>Age: {age}</GameDetails>
-          <ExpandCardContent className={isExpanded ? 'expand' : ''}>
+          <ExpandCardContent
+            data-cy="ExpandContent"
+            className={isExpanded ? 'expand' : ''}
+          >
             <Separator />
             <TagListHeading text="Keen players" />
             <TagList>
