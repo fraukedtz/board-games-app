@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
-import Card from './styledcomponents/Card'
-import ToggleIcon from './ui/ToggleIcon'
-import Separator from './styledcomponents/Separator'
-import TagListHeading from './ui/TagListHeading'
-import TagList from './styledcomponents/TagList'
-import CardContent from './styledcomponents/CardContent'
+import Card from './Card'
+import ToggleIcon from './ToggleIcon'
+import Separator from './Separator'
+import TagListHeading from './TagListHeading'
+import TagList from './TagList'
+import CardContent from './CardContent'
+import ExpandCardContent from './ExpandCardContent'
 
 const ImageContainer = styled.div`
   grid-row-start: span 2;
@@ -35,23 +36,6 @@ const Title = styled.h2`
   font-family: 'Questrial', sans-serif;
   grid-column-start: span 2;
   margin: 0;
-`
-
-const AdditionalContent = styled.section`
-  display: grid;
-  grid-column-start: span 4;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  /* margin-bottom: 20px; */
-  max-height: 0;
-  overflow: hidden;
-  /* padding: 0 20px; */
-  transition: max-height 0.3s;
-
-  &.expand {
-    max-height: 800px;
-  }
 `
 
 export default class PlayerCard extends Component {
@@ -81,8 +65,7 @@ export default class PlayerCard extends Component {
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <Username>{userName}</Username>
-          {/* </CardContent> */}
-          <AdditionalContent className={isExpanded ? 'expand' : ''}>
+          <ExpandCardContent className={isExpanded ? 'expand' : ''}>
             <Separator />
             <TagListHeading text="I like to play" />
             <TagList>
@@ -100,7 +83,7 @@ export default class PlayerCard extends Component {
                 <span>No games selected</span>
               )}
             </TagList>
-          </AdditionalContent>
+          </ExpandCardContent>
         </CardContent>
       </Card>
     )
