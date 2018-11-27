@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import GamesScreen from './screens/GamesScreen'
 import PlayersScreen from './screens/PlayersScreen'
+import PlayGroupScreen from './screens/PlayGroupScreen'
 import Navigation from './Navigation'
 
 const Wrapper = styled.div`
@@ -20,6 +21,7 @@ export default class App extends Component {
         <Wrapper>
           <Route exact path="/" render={() => <GamesScreen />} />
           <Route path="/players/" render={() => <PlayersScreen />} />
+          <Route path="/playgroup/" render={() => <PlayGroupScreen />} />
           <Navigation />
         </Wrapper>
       </Router>

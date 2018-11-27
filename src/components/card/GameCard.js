@@ -28,7 +28,7 @@ const Image = styled.img`
 const Title = styled.h2`
   align-items: center;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   grid-column-start: span 3;
   margin: 0;
 `

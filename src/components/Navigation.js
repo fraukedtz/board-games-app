@@ -21,7 +21,7 @@ const Nav = styled.nav`
     background: #333;
     color: #7f7f7f;
     display: flex;
-    font-size: 30px;
+    font-size: 26px;
     justify-content: center;
     text-decoration: none;
     width: 100%;
@@ -41,6 +41,9 @@ export default class Navigation extends Component {
         </NavLink>
         <NavLink activeClassName="active" to="/players/">
           <FontAwesomeIcon icon="chess-pawn" />
+        </NavLink>
+        <NavLink activeClassName="active" to="/playgroup/">
+          <FontAwesomeIcon icon="star" />
         </NavLink>
       </Nav>
     )

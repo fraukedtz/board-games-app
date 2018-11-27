@@ -33,7 +33,7 @@ const Username = styled.span`
 const Title = styled.h2`
   align-self: flex-end;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   grid-column-start: span 1;
   margin: 0;
 `
