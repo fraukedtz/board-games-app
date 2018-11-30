@@ -1,0 +1,60 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const ImageContainer = styled.div`
+  /* grid-row-start: span 2; */
+  height: 25px;
+  width: 25px;
+`
+
+const Image = styled.img`
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+`
+
+const BookmarkIcon = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  /* grid-row-start: span 2; */
+  justify-content: center;
+
+  &.bookmarked {
+    color: deeppink;
+  }
+`
+
+const Player = styled.div`
+  background: teal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eaeaea;
+  border-radius: 5px;
+  color: #5f6368;
+  padding: 10px;
+`
+
+export default class PlayerTag extends Component {
+  render() {
+    const { name, imgScr, isBookmarked, onClickBookmark } = this.props
+    return (
+      <Player>
+        {/* <ImageContainer>
+          <Image src={imgScr} alt="" />
+        </ImageContainer> */}
+        {name}
+        <BookmarkIcon
+          data-cy="Bookmark"
+          onClick={onClickBookmark}
+          className={isBookmarked ? 'bookmarked' : ''}
+        >
+          <FontAwesomeIcon icon="star" />
+        </BookmarkIcon>
+      </Player>
+    )
+  }
+}
