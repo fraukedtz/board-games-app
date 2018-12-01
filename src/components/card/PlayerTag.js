@@ -2,32 +2,30 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ImageContainer = styled.div`
-  /* grid-row-start: span 2; */
-  height: 25px;
-  width: 25px;
-`
-
-const Image = styled.img`
-  border-radius: 50%;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-`
-
 const BookmarkIcon = styled.div`
   align-items: center;
   display: flex;
   font-size: 20px;
-  /* grid-row-start: span 2; */
   justify-content: center;
 
   &.bookmarked {
     color: deeppink;
   }
 `
+// const ImageContainer = styled.div`
+//   /* grid-row-start: span 2; */
+//   height: 25px;
+//   width: 25px;
+// `
 
-const Player = styled.div`
+// const Image = styled.img`
+//   border-radius: 50%;
+//   height: 100%;
+//   object-fit: cover;
+//   width: 100%;
+// `
+
+const Wrapper = styled.div`
   background: teal;
   display: flex;
   justify-content: space-between;
@@ -42,7 +40,7 @@ export default class PlayerTag extends Component {
   render() {
     const { name, imgScr, isBookmarked, onToggleBookmark } = this.props
     return (
-      <Player>
+      <Wrapper>
         {/* <ImageContainer>
           <Image src={imgScr} alt="" />
         </ImageContainer> */}
@@ -54,7 +52,7 @@ export default class PlayerTag extends Component {
         >
           <FontAwesomeIcon icon="star" />
         </BookmarkIcon>
-      </Player>
+      </Wrapper>
     )
   }
 }

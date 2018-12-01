@@ -868,7 +868,7 @@ export default class App extends Component {
             )}
           />
           <Route
-            path="/playgroup/"
+            path="/gamesevening/"
             render={() => (
               <GamesEveningScreen
                 bookmarkedPlayers={this.state.bookmarkedPlayers}
