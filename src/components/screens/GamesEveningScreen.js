@@ -50,7 +50,7 @@ export default class GamesEveningScreen extends Component {
     <PlayerTag
       key={player.id}
       {...player}
-      onClickBookmark={() => this.props.onToggleBookmark(player.id)}
+      onToggleBookmark={() => this.props.onToggleBookmark(player)}
     />
   )
 

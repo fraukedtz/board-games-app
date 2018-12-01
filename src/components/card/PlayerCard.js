@@ -69,9 +69,9 @@ export default class PlayerCard extends Component {
       imgScr,
       userName,
       isExpanded,
-      isBookmarked,
       onClick,
-      onClickBookmark
+      onToggleBookmark
+      //isPlayerBookmarked
     } = this.props
     return (
       <Card>
@@ -82,8 +82,8 @@ export default class PlayerCard extends Component {
           <Title>{name}</Title>
           <BookmarkIcon
             data-cy="Bookmark"
-            onClick={onClickBookmark}
-            className={isBookmarked ? 'bookmarked' : ''}
+            onClick={onToggleBookmark}
+            // className={isPlayerBookmarked ? 'bookmarked' : null}
           >
             <FontAwesomeIcon icon="star" />
           </BookmarkIcon>
