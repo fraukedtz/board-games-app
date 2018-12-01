@@ -86,5 +86,13 @@ export default class GamesEveningScreen extends Component {
       .map(this.renderSingleGame)
   }
 
+  // renderAllGames() {
+  //   const { likedGamesBookmarkedPlayers } = this.props
+
+  //   return likedGamesBookmarkedPlayers
+  //     .sort((a, b) => (a.title < b.title ? -1 : 1))
+  //     .map(this.renderSingleGame)
+  // }
+
   renderSingleGame = game => <GameTag key={game.id} {...game} />
 }

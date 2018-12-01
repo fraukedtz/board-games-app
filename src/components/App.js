@@ -15,7 +15,8 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
-    bookmarkedPlayers: [],
+    bookmarkedPlayers: this.loadBookmarkedPlayers(),
+    // likedGamesBookmarkedPlayers: [],
     players: [
       {
         id: '1',
@@ -842,6 +843,7 @@ export default class App extends Component {
   }
 
   render() {
+    this.saveBookmarkedPlayers()
     return (
       <Router>
         <Wrapper>
@@ -872,6 +874,9 @@ export default class App extends Component {
               <GamesEveningScreen
                 bookmarkedPlayers={this.state.bookmarkedPlayers}
                 onToggleBookmark={this.toggleBookmark}
+                // likedGamesBookmarkedPlayers={
+                //   this.state.likedGamesBookmarkedPlayers
+                // }
               />
             )}
           />
@@ -938,5 +943,24 @@ export default class App extends Component {
       : [...bookmarkedPlayers, player]
 
     return newbookmarkedPlayers
+  }
+
+  saveBookmarkedPlayers() {
+    localStorage.setItem(
+      'board-games-app--bookmarkedPlayers',
+      JSON.stringify(this.state.bookmarkedPlayers)
+    )
+  }
+
+  loadBookmarkedPlayers() {
+    try {
+      return (
+        JSON.parse(
+          localStorage.getItem('board-games-app--bookmarkedPlayers')
+        ) || []
+      )
+    } catch (err) {
+      return []
+    }
   }
 }
