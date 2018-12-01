@@ -25,8 +25,13 @@ export default class PlayersScreen extends Component {
       key={player.id}
       {...player}
       onClick={() => this.props.onToggleExpand(player.id)}
-      //isPlayerBookmarked={() => this.props.isPlayerBookmarked(player)}
+      isPlayerBookmarked={this.isPlayerBookmarked(player)}
       onToggleBookmark={() => this.props.onToggleBookmark(player)}
     />
   )
+
+  isPlayerBookmarked(player) {
+    const { bookmarkedPlayers } = this.props
+    return bookmarkedPlayers.some(p => p.id === player.id)
+  }
 }

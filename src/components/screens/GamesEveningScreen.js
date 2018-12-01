@@ -53,9 +53,15 @@ export default class GamesEveningScreen extends Component {
     <PlayerTag
       key={player.id}
       {...player}
+      isPlayerBookmarked={this.isPlayerBookmarked(player)}
       onToggleBookmark={() => this.props.onToggleBookmark(player)}
     />
   )
+
+  isPlayerBookmarked(player) {
+    const { bookmarkedPlayers } = this.props
+    return bookmarkedPlayers.some(p => p.id === player.id)
+  }
 
   renderAllGames() {
     const { bookmarkedPlayers } = this.props

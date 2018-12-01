@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-// import uid from 'uid'
 import styled from 'styled-components'
 
 import GamesScreen from './screens/GamesScreen'
@@ -59,7 +58,7 @@ export default class App extends Component {
       },
       {
         id: '2',
-        name: 'Alexander',
+        name: 'Alex',
         imgScr: 'https://source.unsplash.com/1600x900/?beach',
         userName: '@alex',
         isExpanded: false,
@@ -862,7 +861,7 @@ export default class App extends Component {
               <PlayersScreen
                 players={this.state.players}
                 onToggleExpand={this.toggleExpandPlayerCard}
-                //isPlayerBookmarked={this.isPlayerBookmarked}
+                bookmarkedPlayers={this.state.bookmarkedPlayers}
                 onToggleBookmark={this.toggleBookmark}
               />
             )}
@@ -908,12 +907,6 @@ export default class App extends Component {
     this.setState({
       players: updatedPlayers
     })
-  }
-
-  isPlayerBookmarked(player) {
-    const { bookmarkedPlayers } = this.state
-    console.log('hallo')
-    return bookmarkedPlayers.some(p => p.id === player.id)
   }
 
   toggleBookmark = player => {
