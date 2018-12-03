@@ -14,8 +14,8 @@ describe('App', () => {
 })
 
 describe('Navigation', () => {
-  it('has two buttons', () => {
-    cy.get('nav > a').should('have.length', 2)
+  it('has three buttons', () => {
+    cy.get('nav > a').should('have.length', 3)
   })
 
   it('has active button', () => {

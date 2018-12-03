@@ -86,7 +86,11 @@ export default class PlayerCard extends Component {
           >
             <FontAwesomeIcon icon="star" />
           </BookmarkIcon>
-          <ToggleIcon onClick={onClick} className={isExpanded ? 'rotate' : ''}>
+          <ToggleIcon
+            data-cy="Toggle"
+            onClick={onClick}
+            className={isExpanded ? 'rotate' : ''}
+          >
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <Username>{userName}</Username>
