@@ -73,7 +73,7 @@ export default class PlayerCard extends Component {
       onToggleBookmark
     } = this.props
     return (
-      <Card>
+      <Card data-cy="PlayerCard">
         <CardContent>
           <ImageContainer>
             <Image src={imgScr} alt="" />
@@ -90,7 +90,10 @@ export default class PlayerCard extends Component {
             <FontAwesomeIcon icon="angle-down" />
           </ToggleIcon>
           <Username>{userName}</Username>
-          <ExpandCardContent className={isExpanded ? 'expand' : ''}>
+          <ExpandCardContent
+            data-cy="ExpandContent"
+            className={isExpanded ? 'expand' : ''}
+          >
             <Separator />
             <TagListHeading text="I like to play" />
             <TagList>

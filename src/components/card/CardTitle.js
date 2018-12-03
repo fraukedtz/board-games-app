@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Heading = styled.h2`
   align-items: center;
   display: flex;
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   grid-column-start: span ${props => props.width || '2'};
   margin: 0;
 `
