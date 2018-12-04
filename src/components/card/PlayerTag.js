@@ -12,18 +12,6 @@ const BookmarkIcon = styled.div`
     color: deeppink;
   }
 `
-// const ImageContainer = styled.div`
-//   /* grid-row-start: span 2; */
-//   height: 25px;
-//   width: 25px;
-// `
-
-// const Image = styled.img`
-//   border-radius: 50%;
-//   height: 100%;
-//   object-fit: cover;
-//   width: 100%;
-// `
 
 const Wrapper = styled.div`
   background: teal;
@@ -38,12 +26,9 @@ const Wrapper = styled.div`
 
 export default class PlayerTag extends Component {
   render() {
-    const { name, imgScr, isPlayerBookmarked, onToggleBookmark } = this.props
+    const { name, isPlayerBookmarked, onToggleBookmark } = this.props
     return (
       <Wrapper>
-        {/* <ImageContainer>
-          <Image src={imgScr} alt="" />
-        </ImageContainer> */}
         {name}
         <BookmarkIcon
           data-cy="Bookmark"

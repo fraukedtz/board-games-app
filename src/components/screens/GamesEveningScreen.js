@@ -7,10 +7,9 @@ import PlayerTag from '../card/PlayerTag'
 import Card from '../card/Card'
 import TagListHeading from '../card/TagListHeading'
 import GameTag from '../card/GameTag'
+import SubHeading from '../card/SubHeading'
+import Separator from '../card/Separator'
 
-const Title = styled.h2`
-  margin: 0;
-`
 const GamesContainer = styled.div`
   display: grid;
   grid-gap: 10px;
@@ -32,11 +31,28 @@ export default class GamesEveningScreen extends Component {
         <Header text={'Games Evening'} />
         <CardsContainer>
           <Card padding={20}>
-            <Title>{'Games Evening 1'}</Title>
-            <TagListHeading text="Selected Players" />
-            <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
-            <TagListHeading text="Games that players like" />
-            <GamesContainer>{this.renderAllGames()}</GamesContainer>
+            <h2>{'My Games Evening'}</h2>
+            <Separator margin={20} />
+            {this.props.bookmarkedPlayers.length > 0 ? null : (
+              <React.Fragment>
+                Let's go - start adding players to your games session by
+                bookmarking players on the players screen! 😎
+              </React.Fragment>
+            )}
+
+            <SubHeading text="Selected Players" />
+            {this.props.bookmarkedPlayers.length > 0 ? (
+              <React.Fragment>
+                <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
+                <SubHeading text="Games that players like" />
+                Choose which games you want to play
+                <GamesContainer>{this.renderAllGames()}</GamesContainer>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                It's lonely here - no players selected.
+              </React.Fragment>
+            )}
           </Card>
         </CardsContainer>
       </React.Fragment>
