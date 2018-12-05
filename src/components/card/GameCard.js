@@ -83,15 +83,15 @@ export default class GameCard extends Component {
             <Separator />
             <TagListHeading text="Keen players" />
             <TagList>
-              {this.countSelectedPlayers('like') >= 1 ? (
-                this.renderLikedByPlayers()
+              {this.props.keenPlayers.length >= 1 ? (
+                this.renderkeenPlayers()
               ) : (
                 <span>No players selected</span>
               )}
             </TagList>
             <TagListHeading text="Game owners" />
             <TagList>
-              {this.countSelectedPlayers('own') >= 1 ? (
+              {this.props.owners.length >= 1 ? (
                 this.renderOwnedByPlayers()
               ) : (
                 <span>No players selected</span>
@@ -103,36 +103,26 @@ export default class GameCard extends Component {
     )
   }
 
-  countSelectedPlayers(criteria) {
-    let length
-
-    if (criteria === 'like') {
-      length = this.props.players.filter(p => p.likesGame).length
-    } else if (criteria === 'own') {
-      length = this.props.players.filter(p => p.ownsGame).length
-    } else {
-      length = 0
-    }
-
-    return length
-  }
-
-  renderLikedByPlayers() {
-    return this.props.players
-      .filter(p => p.likesGame)
+  renderkeenPlayers() {
+    return this.props.keenPlayers
       .sort((a, b) => (a.name < b.name ? -1 : 1))
-      .map(this.renderSinglePlayer)
+      .map(this.renderSingleKeenPlayer)
   }
 
   renderOwnedByPlayers() {
-    return this.props.players
-      .filter(p => p.ownsGame)
+    return this.props.owners
       .sort((a, b) => (a.name < b.name ? -1 : 1))
-      .map(this.renderSinglePlayer)
+      .map(this.renderSingleOwnerPlayer)
   }
 
-  renderSinglePlayer = player => (
+  renderSingleKeenPlayer = player => (
     <li key={player.key} className={player.ownsGame ? 'owns' : ''}>
+      {player.name}
+    </li>
+  )
+
+  renderSingleOwnerPlayer = player => (
+    <li key={player.key} className={'owns'}>
       {player.name}
     </li>
   )

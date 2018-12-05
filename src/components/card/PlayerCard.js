@@ -101,7 +101,7 @@ export default class PlayerCard extends Component {
             <Separator />
             <TagListHeading text="I like to play" />
             <TagList>
-              {this.countSelectedGames('like') >= 1 ? (
+              {this.props.likedGames.length >= 1 ? (
                 this.renderLikedGames()
               ) : (
                 <span>No games selected</span>
@@ -109,7 +109,7 @@ export default class PlayerCard extends Component {
             </TagList>
             <TagListHeading text="I own" />
             <TagList>
-              {this.countSelectedGames('own') >= 1 ? (
+              {this.props.ownedGames.length >= 1 ? (
                 this.renderOwnedGames()
               ) : (
                 <span>No games selected</span>
@@ -121,36 +121,26 @@ export default class PlayerCard extends Component {
     )
   }
 
-  countSelectedGames(criteria) {
-    let length
-
-    if (criteria === 'like') {
-      length = this.props.games.filter(g => g.likedByPlayer).length
-    } else if (criteria === 'own') {
-      length = this.props.games.filter(g => g.ownedByPlayer).length
-    } else {
-      length = 0
-    }
-
-    return length
-  }
-
   renderLikedGames() {
-    return this.props.games
-      .filter(g => g.likedByPlayer)
+    return this.props.likedGames
       .sort((a, b) => (a.title < b.title ? -1 : 1))
-      .map(this.renderSingleGame)
+      .map(this.renderSingleLikedGame)
   }
 
   renderOwnedGames() {
-    return this.props.games
-      .filter(g => g.ownedByPlayer)
+    return this.props.ownedGames
       .sort((a, b) => (a.title < b.title ? -1 : 1))
-      .map(this.renderSingleGame)
+      .map(this.renderSingleOwnedGame)
   }
 
-  renderSingleGame = game => (
-    <li key={game.key} className={game.ownedByPlayer ? 'owns' : ''}>
+  renderSingleLikedGame = game => (
+    <li key={game.key} className={game.isOwned ? 'owns' : ''}>
+      {game.title}
+    </li>
+  )
+
+  renderSingleOwnedGame = game => (
+    <li key={game.key} className={'owns'}>
       {game.title}
     </li>
   )

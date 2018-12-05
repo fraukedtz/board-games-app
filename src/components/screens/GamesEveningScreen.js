@@ -84,7 +84,7 @@ export default class GamesEveningScreen extends Component {
     let likedGamesBySelectedPlayers = []
 
     bookmarkedPlayers.forEach(function(element) {
-      let likedGames = element.games.filter(g => g.likedByPlayer)
+      let likedGames = element.likedGames
 
       likedGames.forEach(function(element) {
         const newArray = likedGamesBySelectedPlayers.some(

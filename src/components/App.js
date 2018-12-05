@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 export default class App extends Component {
   state = {
     bookmarkedPlayers: this.loadBookmarkedPlayers(),
-    // likedGamesBookmarkedPlayers: [],
     players: [
       {
         id: '1',
@@ -24,36 +23,31 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?cat',
         userName: '@frauks',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '3',
             title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
+          }
+        ],
+        ownedGames: [
+          {
+            id: '1',
+            title: 'The Settlers of Catan'
           },
           {
-            id: '4',
-            title: 'Monopoly',
-            likedByPlayer: false,
-            ownedByPlayer: false
-          },
-          {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            id: '3',
+            title: 'Qwirkle'
           }
         ]
       },
@@ -63,36 +57,32 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?beach',
         userName: '@alex',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: false
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
           },
           {
             id: '3',
             title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
+            isOwned: false
+          }
+        ],
+        ownedGames: [
           {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            id: '2',
+            title: 'UNO'
           }
         ]
       },
@@ -102,75 +92,74 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?developer',
         userName: '@jerry',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '3',
             title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
+          }
+        ],
+        ownedGames: [
+          {
+            id: '1',
+            title: 'The Settlers of Catan'
           },
           {
-            id: '4',
-            title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            id: '3',
+            title: 'Qwirkle'
           },
           {
             id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            title: 'Scrabble'
           }
         ]
       },
       {
         id: '4',
-        name: 'Tom',
-        imgScr: 'https://source.unsplash.com/1600x900/?dog',
-        userName: '@tom',
+        name: 'Chris',
+        imgScr: 'https://source.unsplash.com/1600x900/?business',
+        userName: '@chris',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: true
           },
           {
             id: '5',
             title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: true
+          }
+        ],
+        ownedGames: [
+          {
+            id: '4',
+            title: 'Monopoly'
+          },
+          {
+            id: '5',
+            title: 'Scrabble'
           }
         ]
       },
@@ -180,38 +169,24 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?ocean',
         userName: '@kelly',
         isExpanded: false,
-        games: [
-          {
-            id: '1',
-            title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
+        likedGames: [
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '5',
             title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: false
           }
-        ]
+        ],
+        ownedGames: []
       },
       {
         id: '6',
@@ -219,36 +194,32 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?autumn',
         userName: '@hans',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: true
           },
           {
             id: '5',
             title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: false
+          }
+        ],
+        ownedGames: [
+          {
+            id: '4',
+            title: 'Monopoly'
           }
         ]
       },
@@ -258,36 +229,27 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?creative',
         userName: '@jan',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: false,
-            ownedByPlayer: false
-          },
-          {
-            id: '2',
-            title: 'UNO',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '3',
             title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: true
+            isOwned: true
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
+            isOwned: false
+          }
+        ],
+        ownedGames: [
           {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            id: '3',
+            title: 'Qwirkle'
           }
         ]
       },
@@ -297,153 +259,52 @@ export default class App extends Component {
         imgScr: 'https://source.unsplash.com/1600x900/?summer',
         userName: '@melanie',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: false
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
+            isOwned: true
           },
           {
             id: '4',
             title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
+            isOwned: false
+          }
+        ],
+        ownedGames: [
           {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            id: '2',
+            title: 'UNO'
           }
         ]
       },
       {
         id: '9',
-        name: 'Benno',
-        imgScr: 'https://source.unsplash.com/1600x900/?nature',
-        userName: '@benno',
-        isExpanded: false,
-        games: [
-          {
-            id: '1',
-            title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '2',
-            title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '4',
-            title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
-          }
-        ]
-      },
-      {
-        id: '10',
         name: 'Lukas',
         imgScr: 'https://source.unsplash.com/1600x900/?sport',
         userName: '@lukas',
         isExpanded: false,
-        games: [
+        likedGames: [
           {
             id: '1',
             title: 'The Settlers of Catan',
-            likedByPlayer: false,
-            ownedByPlayer: true
+            isOwned: false
           },
           {
             id: '2',
             title: 'UNO',
-            likedByPlayer: false,
-            ownedByPlayer: true
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: false,
-            ownedByPlayer: true
-          },
-          {
-            id: '4',
-            title: 'Monopoly',
-            likedByPlayer: false,
-            ownedByPlayer: true
-          },
-          {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            isOwned: true
           }
-        ]
-      },
-      {
-        id: '11',
-        name: 'Chris',
-        imgScr: 'https://source.unsplash.com/1600x900/?business',
-        userName: '@chris',
-        isExpanded: false,
-        games: [
-          {
-            id: '1',
-            title: 'The Settlers of Catan',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
+        ],
+        ownedGames: [
           {
             id: '2',
-            title: 'UNO',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '3',
-            title: 'Qwirkle',
-            likedByPlayer: true,
-            ownedByPlayer: false
-          },
-          {
-            id: '4',
-            title: 'Monopoly',
-            likedByPlayer: true,
-            ownedByPlayer: true
-          },
-          {
-            id: '5',
-            title: 'Scrabble',
-            likedByPlayer: false,
-            ownedByPlayer: false
+            title: 'UNO'
           }
         ]
       }
@@ -458,72 +319,51 @@ export default class App extends Component {
         playingTime: '60-120',
         age: '10+',
         isExpanded: false,
-        players: [
+        keenPlayers: [
           {
             id: '1',
             name: 'Frauke',
-            likesGame: true,
             ownsGame: true
           },
           {
             id: '2',
             name: 'Alex',
-            likesGame: true,
-            ownsGame: true
+            ownsGame: false
           },
           {
             id: '3',
             name: 'Jerry',
-            likesGame: true,
             ownsGame: true
-          },
-          {
-            id: '4',
-            name: 'Tom',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '5',
-            name: 'Kelly',
-            likesGame: true,
-            ownsGame: false
           },
           {
             id: '6',
             name: 'Hans',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '7',
             name: 'Jan',
-            likesGame: false,
             ownsGame: false
           },
           {
             id: '8',
             name: 'Melanie',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '9',
-            name: 'Benno',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '10',
             name: 'Lukas',
-            likesGame: false,
-            ownsGame: true
+            ownsGame: false
+          }
+        ],
+        owners: [
+          {
+            id: '1',
+            name: 'Frauke'
           },
           {
-            id: '11',
-            name: 'Chris',
-            likesGame: true,
-            ownsGame: false
+            id: '3',
+            name: 'Jerry'
           }
         ]
       },
@@ -536,72 +376,55 @@ export default class App extends Component {
         playingTime: '30',
         age: '6+',
         isExpanded: false,
-        players: [
+        keenPlayers: [
           {
             id: '1',
             name: 'Frauke',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '2',
             name: 'Alex',
-            likesGame: true,
             ownsGame: true
           },
           {
             id: '3',
             name: 'Jerry',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '4',
-            name: 'Tom',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '5',
             name: 'Kelly',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '6',
             name: 'Hans',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '7',
-            name: 'Jan',
-            likesGame: false,
             ownsGame: false
           },
           {
             id: '8',
             name: 'Melanie',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '9',
-            name: 'Benno',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '10',
-            name: 'Lukas',
-            likesGame: false,
             ownsGame: true
           },
           {
-            id: '11',
-            name: 'Chris',
-            likesGame: true,
-            ownsGame: false
+            id: '9',
+            name: 'Lukas',
+            ownsGame: true
+          }
+        ],
+        owners: [
+          {
+            id: '2',
+            name: 'Alex'
+          },
+          {
+            id: '8',
+            name: 'Melanie'
+          },
+          {
+            id: '9',
+            name: 'Lukas'
           }
         ]
       },
@@ -614,72 +437,46 @@ export default class App extends Component {
         playingTime: '60-180',
         age: '8+',
         isExpanded: false,
-        players: [
-          {
-            id: '1',
-            name: 'Frauke',
-            likesGame: false,
-            ownsGame: false
-          },
+        keenPlayers: [
           {
             id: '2',
             name: 'Alex',
-            likesGame: false,
             ownsGame: false
-          },
-          {
-            id: '3',
-            name: 'Jerry',
-            likesGame: true,
-            ownsGame: true
           },
           {
             id: '4',
-            name: 'Tom',
-            likesGame: true,
-            ownsGame: false
+            name: 'Chris',
+            ownsGame: true
           },
           {
             id: '5',
             name: 'Kelly',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '6',
             name: 'Hans',
-            likesGame: true,
-            ownsGame: false
+            ownsGame: true
           },
           {
             id: '7',
             name: 'Jan',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '8',
             name: 'Melanie',
-            likesGame: true,
             ownsGame: false
+          }
+        ],
+        owners: [
+          {
+            id: '4',
+            name: 'Chris'
           },
           {
-            id: '9',
-            name: 'Benno',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '10',
-            name: 'Lukas',
-            likesGame: false,
-            ownsGame: true
-          },
-          {
-            id: '11',
-            name: 'Chris',
-            likesGame: true,
-            ownsGame: true
+            id: '6',
+            name: 'Hans'
           }
         ]
       },
@@ -692,72 +489,36 @@ export default class App extends Component {
         playingTime: '45',
         age: '6+',
         isExpanded: false,
-        players: [
+        keenPlayers: [
           {
             id: '1',
             name: 'Frauke',
-            likesGame: true,
             ownsGame: true
           },
           {
             id: '2',
             name: 'Alex',
-            likesGame: true,
             ownsGame: false
           },
           {
             id: '3',
             name: 'Jerry',
-            likesGame: true,
             ownsGame: true
-          },
-          {
-            id: '4',
-            name: 'Tom',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '5',
-            name: 'Kelly',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '6',
-            name: 'Hans',
-            likesGame: true,
-            ownsGame: false
           },
           {
             id: '7',
             name: 'Jan',
-            likesGame: true,
-            ownsGame: true
-          },
-          {
-            id: '8',
-            name: 'Melanie',
-            likesGame: true,
             ownsGame: false
+          }
+        ],
+        owners: [
+          {
+            id: '1',
+            name: 'Frauke'
           },
           {
-            id: '9',
-            name: 'Benno',
-            likesGame: true,
-            ownsGame: false
-          },
-          {
-            id: '10',
-            name: 'Lukas',
-            likesGame: false,
-            ownsGame: true
-          },
-          {
-            id: '11',
-            name: 'Chris',
-            likesGame: true,
-            ownsGame: false
+            id: '3',
+            name: 'Jerry'
           }
         ]
       },
@@ -770,73 +531,29 @@ export default class App extends Component {
         playingTime: '45',
         age: '6+',
         isExpanded: false,
-        players: [
-          {
-            id: '1',
-            name: 'Frauke',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '2',
-            name: 'Alex',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '3',
-            name: 'Jerry',
-            likesGame: false,
-            ownsGame: false
-          },
+        keenPlayers: [
           {
             id: '4',
-            name: 'Tom',
-            likesGame: false,
-            ownsGame: false
+            name: 'Chris',
+            ownsGame: true
           },
           {
             id: '5',
             name: 'Kelly',
-            likesGame: false,
             ownsGame: false
           },
           {
             id: '6',
             name: 'Hans',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '7',
-            name: 'Jan',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '8',
-            name: 'Melanie',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '9',
-            name: 'Benno',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '10',
-            name: 'Lukas',
-            likesGame: false,
-            ownsGame: false
-          },
-          {
-            id: '11',
-            name: 'Chris',
-            likesGame: false,
             ownsGame: false
           }
+        ],
+        owners: [
+          {
+            id: '3',
+            name: 'Jerry'
+          },
+          { id: '4', name: 'Chris' }
         ]
       }
     ]
@@ -874,9 +591,6 @@ export default class App extends Component {
               <GamesEveningScreen
                 bookmarkedPlayers={this.state.bookmarkedPlayers}
                 onToggleBookmark={this.toggleBookmark}
-                // likedGamesBookmarkedPlayers={
-                //   this.state.likedGamesBookmarkedPlayers
-                // }
               />
             )}
           />
