@@ -31,7 +31,7 @@ export default class PlayersScreen extends Component {
   )
 
   isPlayerBookmarked(player) {
-    const { bookmarkedPlayers } = this.props
-    return bookmarkedPlayers.some(p => p.id === player.id)
+    const { gamesEvening } = this.props
+    return gamesEvening.players.some(p => p.id === player.id)
   }
 }

@@ -15,7 +15,11 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
-    bookmarkedPlayers: this.loadBookmarkedPlayers(),
+    gamesEvening: {
+      players: this.loadBookmarkedPlayers(),
+      games: []
+    },
+    // bookmarkedPlayers: this.loadBookmarkedPlayers(),
     players: [
       {
         id: '1',
@@ -580,7 +584,7 @@ export default class App extends Component {
               <PlayersScreen
                 players={this.state.players}
                 onToggleExpand={this.toggleExpandPlayerCard}
-                bookmarkedPlayers={this.state.bookmarkedPlayers}
+                gamesEvening={this.state.gamesEvening}
                 onToggleBookmark={this.toggleBookmark}
               />
             )}
@@ -589,7 +593,7 @@ export default class App extends Component {
             path="/gamesevening/"
             render={() => (
               <GamesEveningScreen
-                bookmarkedPlayers={this.state.bookmarkedPlayers}
+                gamesEvening={this.state.gamesEvening}
                 onToggleBookmark={this.toggleBookmark}
               />
             )}
@@ -629,32 +633,39 @@ export default class App extends Component {
   }
 
   toggleBookmark = player => {
-    const { bookmarkedPlayers } = this.state
-    const newbookmarkedPlayers = bookmarkedPlayers.some(p => p.id === player.id)
+    const { gamesEvening } = this.state
+    const newbookmarkedPlayers = gamesEvening.players.some(
+      p => p.id === player.id
+    )
       ? this.deletePlayerFromBookmarkedPlayers(player.id)
       : this.addPlayerToBookmarkedPlayers(player)
 
     this.setState({
-      bookmarkedPlayers: newbookmarkedPlayers
+      gamesEvening: {
+        ...gamesEvening,
+        players: newbookmarkedPlayers
+      }
     })
   }
 
   deletePlayerFromBookmarkedPlayers = playerId => {
-    const { bookmarkedPlayers } = this.state
-    const index = bookmarkedPlayers.findIndex(p => p.id === playerId)
+    const { gamesEvening } = this.state
+    const index = gamesEvening.players.findIndex(p => p.id === playerId)
     const newbookmarkedPlayers = [
-      ...bookmarkedPlayers.slice(0, index),
-      ...bookmarkedPlayers.slice(index + 1)
+      ...gamesEvening.players.slice(0, index),
+      ...gamesEvening.players.slice(index + 1)
     ]
 
     return newbookmarkedPlayers
   }
 
   addPlayerToBookmarkedPlayers = player => {
-    const { bookmarkedPlayers } = this.state
-    const newbookmarkedPlayers = bookmarkedPlayers.some(p => p.id === player.id)
-      ? [...bookmarkedPlayers]
-      : [...bookmarkedPlayers, player]
+    const { gamesEvening } = this.state
+    const newbookmarkedPlayers = gamesEvening.players.some(
+      p => p.id === player.id
+    )
+      ? [...gamesEvening.players]
+      : [...gamesEvening.players, player]
 
     return newbookmarkedPlayers
   }
@@ -662,7 +673,7 @@ export default class App extends Component {
   saveBookmarkedPlayers() {
     localStorage.setItem(
       'board-games-app--bookmarkedPlayers',
-      JSON.stringify(this.state.bookmarkedPlayers)
+      JSON.stringify(this.state.gamesEvening.players)
     )
   }
 

@@ -33,7 +33,7 @@ export default class GamesEveningScreen extends Component {
           <Card padding={20}>
             <h2>{'My Games Evening'}</h2>
             <Separator margin={20} />
-            {this.props.bookmarkedPlayers.length > 0 ? null : (
+            {this.props.gamesEvening.players.length > 0 ? null : (
               <React.Fragment>
                 Let's go - start adding players to your games session by
                 bookmarking players on the players screen! 😎
@@ -41,12 +41,12 @@ export default class GamesEveningScreen extends Component {
             )}
 
             <SubHeading text="Selected Players" />
-            {this.props.bookmarkedPlayers.length > 0 ? (
+            {this.props.gamesEvening.players.length > 0 ? (
               <React.Fragment>
                 <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
                 <SubHeading text="Games that players like" />
                 Choose which games you want to play
-                <GamesContainer>{this.renderAllGames()}</GamesContainer>
+                {/* <GamesContainer>{this.renderAllGames()}</GamesContainer> */}
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -60,7 +60,7 @@ export default class GamesEveningScreen extends Component {
   }
 
   renderAllPlayers() {
-    return this.props.bookmarkedPlayers
+    return this.props.gamesEvening.players
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)
   }
@@ -75,32 +75,32 @@ export default class GamesEveningScreen extends Component {
   )
 
   isPlayerBookmarked(player) {
-    const { bookmarkedPlayers } = this.props
-    return bookmarkedPlayers.some(p => p.id === player.id)
+    const { gamesEvening } = this.props
+    return gamesEvening.players.some(p => p.id === player.id)
   }
 
-  renderAllGames() {
-    const { bookmarkedPlayers } = this.props
-    let likedGamesBySelectedPlayers = []
+  // renderAllGames() {
+  //   const { bookmarkedPlayers } = this.props
+  //   let likedGamesBySelectedPlayers = []
 
-    bookmarkedPlayers.forEach(function(element) {
-      let likedGames = element.likedGames
+  //   bookmarkedPlayers.forEach(function(element) {
+  //     let likedGames = element.likedGames
 
-      likedGames.forEach(function(element) {
-        const newArray = likedGamesBySelectedPlayers.some(
-          g => g.id === element.id
-        )
-          ? [...likedGamesBySelectedPlayers]
-          : [...likedGamesBySelectedPlayers, element]
+  //     likedGames.forEach(function(element) {
+  //       const newArray = likedGamesBySelectedPlayers.some(
+  //         g => g.id === element.id
+  //       )
+  //         ? [...likedGamesBySelectedPlayers]
+  //         : [...likedGamesBySelectedPlayers, element]
 
-        likedGamesBySelectedPlayers = newArray
-      })
-    })
+  //       likedGamesBySelectedPlayers = newArray
+  //     })
+  //   })
 
-    return likedGamesBySelectedPlayers
-      .sort((a, b) => (a.title < b.title ? -1 : 1))
-      .map(this.renderSingleGame)
-  }
+  //   return likedGamesBySelectedPlayers
+  //     .sort((a, b) => (a.title < b.title ? -1 : 1))
+  //     .map(this.renderSingleGame)
+  // }
 
   // renderAllGames() {
   //   const { likedGamesBookmarkedPlayers } = this.props
