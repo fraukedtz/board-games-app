@@ -5,7 +5,6 @@ import Header from '../Header'
 import CardsContainer from '../card/CardsContainer'
 import PlayerTag from '../card/PlayerTag'
 import Card from '../card/Card'
-import TagListHeading from '../card/TagListHeading'
 import GameTag from '../card/GameTag'
 import SubHeading from '../card/SubHeading'
 import Separator from '../card/Separator'
@@ -46,7 +45,7 @@ export default class GamesEveningScreen extends Component {
                 <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
                 <SubHeading text="Games that players like" />
                 Choose which games you want to play
-                {/* <GamesContainer>{this.renderAllGames()}</GamesContainer> */}
+                <GamesContainer>{this.renderAllGames()}</GamesContainer>
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -79,36 +78,25 @@ export default class GamesEveningScreen extends Component {
     return gamesEvening.players.some(p => p.id === player.id)
   }
 
-  // renderAllGames() {
-  //   const { bookmarkedPlayers } = this.props
-  //   let likedGamesBySelectedPlayers = []
+  renderAllGames() {
+    const { gamesEvening } = this.props
+    let likedGamesBySelectedPlayers = []
 
-  //   bookmarkedPlayers.forEach(function(element) {
-  //     let likedGames = element.likedGames
+    gamesEvening.players.map(player => {
+      player.likedGames.forEach(game => {
+        likedGamesBySelectedPlayers.push(game)
+      })
+    })
 
-  //     likedGames.forEach(function(element) {
-  //       const newArray = likedGamesBySelectedPlayers.some(
-  //         g => g.id === element.id
-  //       )
-  //         ? [...likedGamesBySelectedPlayers]
-  //         : [...likedGamesBySelectedPlayers, element]
-
-  //       likedGamesBySelectedPlayers = newArray
-  //     })
-  //   })
-
-  //   return likedGamesBySelectedPlayers
-  //     .sort((a, b) => (a.title < b.title ? -1 : 1))
-  //     .map(this.renderSingleGame)
-  // }
-
-  // renderAllGames() {
-  //   const { likedGamesBookmarkedPlayers } = this.props
-
-  //   return likedGamesBookmarkedPlayers
-  //     .sort((a, b) => (a.title < b.title ? -1 : 1))
-  //     .map(this.renderSingleGame)
-  // }
+    return likedGamesBySelectedPlayers
+      .reduce((acc, item) => {
+        return acc.some(g => g.id === item.id)
+          ? acc
+          : [...acc, { id: item.id, title: item.title }]
+      }, [])
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleGame)
+  }
 
   renderSingleGame = game => <GameTag key={game.id} {...game} />
 }

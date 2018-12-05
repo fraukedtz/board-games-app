@@ -19,7 +19,6 @@ export default class App extends Component {
       players: this.loadBookmarkedPlayers(),
       games: []
     },
-    // bookmarkedPlayers: this.loadBookmarkedPlayers(),
     players: [
       {
         id: '1',
