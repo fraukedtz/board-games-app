@@ -7,6 +7,12 @@ import PlayersScreen from './screens/PlayersScreen'
 import GamesEveningScreen from './screens/GamesEveningScreen'
 import Navigation from './Navigation'
 
+import ImgCatan from '../images/games/catan.jpg'
+import ImgUno from '../images/games/uno.jpg'
+import ImgScrabble from '../images/games/scrabble.jpg'
+import ImgQwirkle from '../images/games/qwirkle.jpg'
+import ImgMonopoly from '../images/games/monopoly.jpg'
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 60px auto 60px;
@@ -316,8 +322,7 @@ export default class App extends Component {
       {
         id: '1',
         title: 'The Settlers of Catan',
-        imgScr:
-          'https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg',
+        imgScr: ImgCatan,
         numPlayers: '3-4',
         playingTime: '60-120',
         age: '10+',
@@ -373,8 +378,7 @@ export default class App extends Component {
       {
         id: '2',
         title: 'UNO',
-        imgScr:
-          'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg',
+        imgScr: ImgUno,
         numPlayers: '2-10',
         playingTime: '30',
         age: '6+',
@@ -434,8 +438,7 @@ export default class App extends Component {
       {
         id: '3',
         title: 'Monopoly',
-        imgScr:
-          'https://cf.geekdo-images.com/original/img/KzMGdogea21FKDqAG_dRw0j6S-k=/0x0/pic227097.jpg',
+        imgScr: ImgMonopoly,
         numPlayers: '2-8',
         playingTime: '60-180',
         age: '8+',
@@ -486,8 +489,7 @@ export default class App extends Component {
       {
         id: '4',
         title: 'Qwirkle',
-        imgScr:
-          'https://cf.geekdo-images.com/original/img/FnLhG5NDbel24voh8nbdYXAYji0=/0x0/pic309353.jpg',
+        imgScr: ImgQwirkle,
         numPlayers: '2-4',
         playingTime: '45',
         age: '6+',
@@ -528,8 +530,7 @@ export default class App extends Component {
       {
         id: '5',
         title: 'Scrabble',
-        imgScr:
-          'https://cf.geekdo-images.com/original/img/lVqLm3lRviB_an3_gAqhvSJ6riA=/0x0/pic404651.jpg',
+        imgScr: ImgScrabble,
         numPlayers: '2-4',
         playingTime: '45',
         age: '6+',
