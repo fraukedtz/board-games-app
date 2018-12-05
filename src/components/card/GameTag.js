@@ -25,14 +25,14 @@ const Wrapper = styled.div`
 
 export default class GameTag extends Component {
   render() {
-    const { title } = this.props
+    const { title, isGameBookmarked, onToggleBookmarkGame } = this.props
     return (
       <Wrapper>
         {title}
         <BookmarkIcon
           data-cy="Bookmark"
-          //   onClick={onToggleBookmark}
-          //   className={isBookmarked ? 'bookmarked' : ''}
+          onClick={onToggleBookmarkGame}
+          className={isGameBookmarked ? 'bookmarked' : ''}
         >
           <FontAwesomeIcon icon="heart" />
         </BookmarkIcon>

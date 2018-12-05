@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 export default class App extends Component {
   state = {
     gamesEvening: {
-      players: this.loadBookmarkedPlayers(),
+      players: this.loadBookmarkedPlayers() || [],
       games: []
     },
     players: [
@@ -594,6 +594,7 @@ export default class App extends Component {
               <GamesEveningScreen
                 gamesEvening={this.state.gamesEvening}
                 onToggleBookmark={this.toggleBookmark}
+                onToggleBookmarkGame={this.toggleBookmarkGame}
               />
             )}
           />
@@ -686,5 +687,39 @@ export default class App extends Component {
     } catch (err) {
       return []
     }
+  }
+
+  toggleBookmarkGame = game => {
+    const { gamesEvening } = this.state
+    const newbookmarkedGames = gamesEvening.games.some(g => g.id === game.id)
+      ? this.deleteGameFromBookmarkedGames(game.id)
+      : this.addGameToBookmarkedGames(game)
+
+    this.setState({
+      gamesEvening: {
+        ...gamesEvening,
+        games: newbookmarkedGames
+      }
+    })
+  }
+
+  deleteGameFromBookmarkedGames = gameId => {
+    const { gamesEvening } = this.state
+    const index = gamesEvening.games.findIndex(g => g.id === gameId)
+    const newbookmarkedGames = [
+      ...gamesEvening.games.slice(0, index),
+      ...gamesEvening.games.slice(index + 1)
+    ]
+
+    return newbookmarkedGames
+  }
+
+  addGameToBookmarkedGames = game => {
+    const { gamesEvening } = this.state
+    const newbookmarkedGames = gamesEvening.games.some(g => g.id === game.id)
+      ? [...gamesEvening.games]
+      : [...gamesEvening.games, game]
+
+    return newbookmarkedGames
   }
 }

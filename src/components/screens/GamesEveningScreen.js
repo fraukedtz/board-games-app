@@ -98,5 +98,17 @@ export default class GamesEveningScreen extends Component {
       .map(this.renderSingleGame)
   }
 
-  renderSingleGame = game => <GameTag key={game.id} {...game} />
+  renderSingleGame = game => (
+    <GameTag
+      key={game.id}
+      {...game}
+      isGameBookmarked={this.isGameBookmarked(game)}
+      onToggleBookmarkGame={() => this.props.onToggleBookmarkGame(game)}
+    />
+  )
+
+  isGameBookmarked(game) {
+    const { gamesEvening } = this.props
+    return gamesEvening.games.some(g => g.id === game.id)
+  }
 }
