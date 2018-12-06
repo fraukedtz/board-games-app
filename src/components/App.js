@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import GamesScreen from './screens/GamesScreen'
 import PlayersScreen from './screens/PlayersScreen'
-import GamesEveningScreen from './screens/GamesEveningScreen'
+import GamesNightScreen from './screens/GamesNightScreen'
 import Navigation from './Navigation'
 
 import ImgCatan from '../images/games/catan.jpg'
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
-    gamesEvening: {
+    gamesNight: {
       players: this.loadBookmarkedPlayers() || [],
       games: []
     },
@@ -584,16 +584,16 @@ export default class App extends Component {
               <PlayersScreen
                 players={this.state.players}
                 onToggleExpand={this.toggleExpandPlayerCard}
-                gamesEvening={this.state.gamesEvening}
+                gamesNight={this.state.gamesNight}
                 onToggleBookmark={this.toggleBookmark}
               />
             )}
           />
           <Route
-            path="/gamesevening/"
+            path="/gamesnight/"
             render={() => (
-              <GamesEveningScreen
-                gamesEvening={this.state.gamesEvening}
+              <GamesNightScreen
+                gamesNight={this.state.gamesNight}
                 onToggleBookmark={this.toggleBookmark}
                 onToggleBookmarkGame={this.toggleBookmarkGame}
               />
@@ -634,39 +634,39 @@ export default class App extends Component {
   }
 
   toggleBookmark = player => {
-    const { gamesEvening } = this.state
-    const newbookmarkedPlayers = gamesEvening.players.some(
+    const { gamesNight } = this.state
+    const newbookmarkedPlayers = gamesNight.players.some(
       p => p.id === player.id
     )
       ? this.deletePlayerFromBookmarkedPlayers(player.id)
       : this.addPlayerToBookmarkedPlayers(player)
 
     this.setState({
-      gamesEvening: {
-        ...gamesEvening,
+      gamesNight: {
+        ...gamesNight,
         players: newbookmarkedPlayers
       }
     })
   }
 
   deletePlayerFromBookmarkedPlayers = playerId => {
-    const { gamesEvening } = this.state
-    const index = gamesEvening.players.findIndex(p => p.id === playerId)
+    const { gamesNight } = this.state
+    const index = gamesNight.players.findIndex(p => p.id === playerId)
     const newbookmarkedPlayers = [
-      ...gamesEvening.players.slice(0, index),
-      ...gamesEvening.players.slice(index + 1)
+      ...gamesNight.players.slice(0, index),
+      ...gamesNight.players.slice(index + 1)
     ]
 
     return newbookmarkedPlayers
   }
 
   addPlayerToBookmarkedPlayers = player => {
-    const { gamesEvening } = this.state
-    const newbookmarkedPlayers = gamesEvening.players.some(
+    const { gamesNight } = this.state
+    const newbookmarkedPlayers = gamesNight.players.some(
       p => p.id === player.id
     )
-      ? [...gamesEvening.players]
-      : [...gamesEvening.players, player]
+      ? [...gamesNight.players]
+      : [...gamesNight.players, player]
 
     return newbookmarkedPlayers
   }
@@ -674,7 +674,7 @@ export default class App extends Component {
   saveBookmarkedPlayers() {
     localStorage.setItem(
       'board-games-app--bookmarkedPlayers',
-      JSON.stringify(this.state.gamesEvening.players)
+      JSON.stringify(this.state.gamesNight.players)
     )
   }
 
@@ -691,35 +691,35 @@ export default class App extends Component {
   }
 
   toggleBookmarkGame = game => {
-    const { gamesEvening } = this.state
-    const newbookmarkedGames = gamesEvening.games.some(g => g.id === game.id)
+    const { gamesNight } = this.state
+    const newbookmarkedGames = gamesNight.games.some(g => g.id === game.id)
       ? this.deleteGameFromBookmarkedGames(game.id)
       : this.addGameToBookmarkedGames(game)
 
     this.setState({
-      gamesEvening: {
-        ...gamesEvening,
+      gamesNight: {
+        ...gamesNight,
         games: newbookmarkedGames
       }
     })
   }
 
   deleteGameFromBookmarkedGames = gameId => {
-    const { gamesEvening } = this.state
-    const index = gamesEvening.games.findIndex(g => g.id === gameId)
+    const { gamesNight } = this.state
+    const index = gamesNight.games.findIndex(g => g.id === gameId)
     const newbookmarkedGames = [
-      ...gamesEvening.games.slice(0, index),
-      ...gamesEvening.games.slice(index + 1)
+      ...gamesNight.games.slice(0, index),
+      ...gamesNight.games.slice(index + 1)
     ]
 
     return newbookmarkedGames
   }
 
   addGameToBookmarkedGames = game => {
-    const { gamesEvening } = this.state
-    const newbookmarkedGames = gamesEvening.games.some(g => g.id === game.id)
-      ? [...gamesEvening.games]
-      : [...gamesEvening.games, game]
+    const { gamesNight } = this.state
+    const newbookmarkedGames = gamesNight.games.some(g => g.id === game.id)
+      ? [...gamesNight.games]
+      : [...gamesNight.games, game]
 
     return newbookmarkedGames
   }

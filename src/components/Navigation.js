@@ -43,7 +43,7 @@ export default class Navigation extends Component {
         <NavLink activeClassName="active" to="/players/">
           <FontAwesomeIcon icon="chess-pawn" />
         </NavLink>
-        <NavLink activeClassName="active" to="/gamesevening/">
+        <NavLink activeClassName="active" to="/gamesnight/">
           <FontAwesomeIcon icon="star" />
         </NavLink>
       </Nav>

@@ -23,16 +23,16 @@ const PlayersContainer = styled.div`
   margin: 10px 0 20px 0;
 `
 
-export default class GamesEveningScreen extends Component {
+export default class GamesNightScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header text={'Games Evening'} />
+        <Header text={'Games Night'} />
         <CardsContainer>
           <Card padding={20}>
-            <h2>{'My Games Evening'}</h2>
+            <h2>{'My Games Night'}</h2>
             <Separator margin={20} />
-            {this.props.gamesEvening.players.length > 0 ? null : (
+            {this.props.gamesNight.players.length > 0 ? null : (
               <React.Fragment>
                 Let's go - start adding players to your games session by
                 bookmarking players on the players screen! 😎
@@ -40,7 +40,7 @@ export default class GamesEveningScreen extends Component {
             )}
 
             <SubHeading text="Selected Players" />
-            {this.props.gamesEvening.players.length > 0 ? (
+            {this.props.gamesNight.players.length > 0 ? (
               <React.Fragment>
                 <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
                 <SubHeading text="Games that players like" />
@@ -59,7 +59,7 @@ export default class GamesEveningScreen extends Component {
   }
 
   renderAllPlayers() {
-    return this.props.gamesEvening.players
+    return this.props.gamesNight.players
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)
   }
@@ -74,15 +74,15 @@ export default class GamesEveningScreen extends Component {
   )
 
   isPlayerBookmarked(player) {
-    const { gamesEvening } = this.props
-    return gamesEvening.players.some(p => p.id === player.id)
+    const { gamesNight } = this.props
+    return gamesNight.players.some(p => p.id === player.id)
   }
 
   renderAllGames() {
-    const { gamesEvening } = this.props
+    const { gamesNight } = this.props
     let likedGamesBySelectedPlayers = []
 
-    gamesEvening.players.map(player => {
+    gamesNight.players.map(player => {
       player.likedGames.forEach(game => {
         likedGamesBySelectedPlayers.push(game)
       })
@@ -108,7 +108,7 @@ export default class GamesEveningScreen extends Component {
   )
 
   isGameBookmarked(game) {
-    const { gamesEvening } = this.props
-    return gamesEvening.games.some(g => g.id === game.id)
+    const { gamesNight } = this.props
+    return gamesNight.games.some(g => g.id === game.id)
   }
 }
