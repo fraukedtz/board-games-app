@@ -24,7 +24,7 @@ export default class App extends Component {
   state = {
     gamesNight: {
       players: this.loadBookmarkedPlayers() || [],
-      games: []
+      games: this.loadBookmarkedGames() || []
     },
     players: [
       {
@@ -566,6 +566,7 @@ export default class App extends Component {
 
   render() {
     this.saveBookmarkedPlayers()
+    this.saveBookmarkedGames()
     return (
       <Router>
         <Wrapper>
@@ -729,5 +730,23 @@ export default class App extends Component {
       : [...gamesNight.games, game]
 
     return newbookmarkedGames
+  }
+
+  saveBookmarkedGames() {
+    localStorage.setItem(
+      'board-games-app--bookmarkedGames',
+      JSON.stringify(this.state.gamesNight.games)
+    )
+  }
+
+  loadBookmarkedGames() {
+    try {
+      return (
+        JSON.parse(localStorage.getItem('board-games-app--bookmarkedGames')) ||
+        []
+      )
+    } catch (err) {
+      return []
+    }
   }
 }
