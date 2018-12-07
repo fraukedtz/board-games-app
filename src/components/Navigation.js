@@ -9,10 +9,11 @@ import {
   faDice,
   faChessPawn,
   faStar,
-  faHeart
+  faHeart,
+  faTrophy
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faAngleDown, faDice, faChessPawn, faStar, faHeart)
+library.add(faAngleDown, faDice, faChessPawn, faStar, faHeart, faTrophy)
 
 const Nav = styled.nav`
   display: flex;
@@ -45,6 +46,9 @@ export default class Navigation extends Component {
         </NavLink>
         <NavLink activeClassName="active" to="/gamesnight/">
           <FontAwesomeIcon icon="star" />
+        </NavLink>
+        <NavLink activeClassName="active" to="/mygamesnight/">
+          <FontAwesomeIcon icon="heart" />
         </NavLink>
       </Nav>
     )

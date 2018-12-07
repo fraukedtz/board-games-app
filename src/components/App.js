@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import GamesScreen from './screens/GamesScreen'
 import PlayersScreen from './screens/PlayersScreen'
 import GamesNightScreen from './screens/GamesNightScreen'
+import MyGamesNightScreen from './screens/MyGamesNightScreen'
 import Navigation from './Navigation'
 
 import ImgCatan from '../images/games/catan.jpg'
@@ -597,6 +598,12 @@ export default class App extends Component {
                 onToggleBookmark={this.toggleBookmark}
                 onToggleBookmarkGame={this.toggleBookmarkGame}
               />
+            )}
+          />
+          <Route
+            path="/mygamesnight/"
+            render={() => (
+              <MyGamesNightScreen gamesNight={this.state.gamesNight} />
             )}
           />
           <Navigation />

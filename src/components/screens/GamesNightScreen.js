@@ -30,7 +30,7 @@ export default class GamesNightScreen extends Component {
         <Header text={'Games Night'} />
         <CardsContainer>
           <Card padding={20}>
-            <h2>{'My Games Night'}</h2>
+            <h2>{'Plan Games Night'}</h2>
             <Separator margin={20} />
             {this.props.gamesNight.players.length > 0 ? null : (
               <React.Fragment>
