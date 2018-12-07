@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import styled from 'styled-components'
 import Header from '../Header'
 import CardsContainer from '../card/CardsContainer'
 import PlayerTag from '../card/PlayerTag'
@@ -8,20 +7,8 @@ import Card from '../card/Card'
 import GameTag from '../card/GameTag'
 import SubHeading from '../card/SubHeading'
 import Separator from '../card/Separator'
-
-const GamesContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  margin: 10px 0 20px 0;
-`
-
-const PlayersContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  margin: 10px 0 20px 0;
-`
+import GamesContainer from '../styledcomponents/GamesContainer'
+import PlayersContainer from '../styledcomponents/PlayersContainer'
 
 export default class GamesNightScreen extends Component {
   render() {
@@ -92,7 +79,7 @@ export default class GamesNightScreen extends Component {
       .reduce((acc, item) => {
         return acc.some(g => g.id === item.id)
           ? acc
-          : [...acc, { id: item.id, title: item.title }]
+          : [...acc, { id: item.id, title: item.title, winnerId: '' }]
       }, [])
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)

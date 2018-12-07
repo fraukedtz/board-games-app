@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
 import Header from '../Header'
 import CardsContainer from '../card/CardsContainer'
@@ -8,20 +7,8 @@ import Separator from '../card/Separator'
 import PlayerTagWithImg from '../card/PlayerTagWithImg'
 import GameTagWithWinner from '../card/GameTagWithWinner'
 import SubHeading from '../card/SubHeading'
-
-const GamesContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  margin: 10px 0 20px 0;
-`
-
-const PlayersContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  margin: 10px 0 20px 0;
-`
+import GamesContainer from '../styledcomponents/GamesContainer'
+import PlayersContainer from '../styledcomponents/PlayersContainer'
 
 export default class MyGamesNightScreen extends Component {
   render() {
@@ -82,6 +69,7 @@ export default class MyGamesNightScreen extends Component {
       key={game.id}
       {...game}
       players={this.props.gamesNight.players}
+      addWinnerToGame={this.props.addWinnerToGame}
     />
   )
 }

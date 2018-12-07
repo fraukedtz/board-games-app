@@ -45,7 +45,7 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle',
             isOwned: true
           }
@@ -56,7 +56,7 @@ export default class App extends Component {
             title: 'The Settlers of Catan'
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle'
           }
         ]
@@ -79,12 +79,12 @@ export default class App extends Component {
             isOwned: true
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle',
             isOwned: false
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: false
           }
@@ -114,7 +114,7 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle',
             isOwned: true
           }
@@ -125,7 +125,7 @@ export default class App extends Component {
             title: 'The Settlers of Catan'
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle'
           },
           {
@@ -152,7 +152,7 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: true
           },
@@ -164,7 +164,7 @@ export default class App extends Component {
         ],
         ownedGames: [
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly'
           },
           {
@@ -186,7 +186,7 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: false
           },
@@ -216,7 +216,7 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: true
           },
@@ -228,7 +228,7 @@ export default class App extends Component {
         ],
         ownedGames: [
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly'
           }
         ]
@@ -246,19 +246,19 @@ export default class App extends Component {
             isOwned: false
           },
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle',
             isOwned: true
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: false
           }
         ],
         ownedGames: [
           {
-            id: '3',
+            id: '4',
             title: 'Qwirkle'
           }
         ]
@@ -281,7 +281,7 @@ export default class App extends Component {
             isOwned: true
           },
           {
-            id: '4',
+            id: '3',
             title: 'Monopoly',
             isOwned: false
           }
@@ -604,7 +604,10 @@ export default class App extends Component {
           <Route
             path="/mygamesnight/"
             render={() => (
-              <MyGamesNightScreen gamesNight={this.state.gamesNight} />
+              <MyGamesNightScreen
+                gamesNight={this.state.gamesNight}
+                addWinnerToGame={this.addWinnerToGame}
+              />
             )}
           />
           <Navigation />
@@ -748,5 +751,25 @@ export default class App extends Component {
     } catch (err) {
       return []
     }
+  }
+
+  addWinnerToGame = (gameId, playerId) => {
+    const { gamesNight } = this.state
+
+    const index = gamesNight.games.findIndex(game => game.id === gameId)
+    const game = gamesNight.games[index]
+
+    const updatedGames = [
+      ...gamesNight.games.slice(0, index),
+      { ...game, winnerId: playerId },
+      ...gamesNight.games.slice(index + 1)
+    ]
+
+    this.setState({
+      gamesNight: {
+        ...gamesNight,
+        games: updatedGames
+      }
+    })
   }
 }
