@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-import Header from '../Header'
 import CardsContainer from '../card/CardsContainer'
 import Card from '../card/Card'
 import Separator from '../card/Separator'
 import PlayerTagWithImg from '../card/PlayerTagWithImg'
 import GameTagWithWinner from '../card/GameTagWithWinner'
+import Heading from '../card/Heading'
 import SubHeading from '../card/SubHeading'
 import GamesContainer from '../styledcomponents/GamesContainer'
 import PlayersContainer from '../styledcomponents/PlayersContainer'
@@ -14,10 +14,9 @@ export default class MyGamesNightScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header text={'My Games Night'} />
         <CardsContainer>
           <Card padding={20}>
-            <h2>{'My Games Night'}</h2>
+            <Heading text="My Games Night" />
             <Separator margin={20} />
             {this.props.gamesNight.players.length > 0 ? (
               <React.Fragment>
