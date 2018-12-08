@@ -15,6 +15,19 @@ import {
 
 library.add(faAngleDown, faDice, faChessPawn, faStar, faHeart, faTrophy)
 
+const Box = styled.div`
+  display: flex;
+  font-size: ${props => props.size || 12}px;
+  justify-content: center;
+`
+
+const Container = styled.div`
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr;
+  text-align: center;
+`
+
 const Nav = styled.nav`
   display: flex;
 
@@ -23,7 +36,6 @@ const Nav = styled.nav`
     background: #333;
     color: #7f7f7f;
     display: flex;
-    font-size: 26px;
     justify-content: center;
     text-decoration: none;
     width: 100%;
@@ -39,16 +51,36 @@ export default class Navigation extends Component {
     return (
       <Nav>
         <NavLink exact activeClassName="active" to="/">
-          <FontAwesomeIcon icon="dice" />
+          <Container>
+            <Box size={22}>
+              <FontAwesomeIcon icon="dice" />
+            </Box>
+            <Box>Games</Box>
+          </Container>
         </NavLink>
         <NavLink activeClassName="active" to="/players/">
-          <FontAwesomeIcon icon="chess-pawn" />
+          <Container>
+            <Box size={22}>
+              <FontAwesomeIcon icon="chess-pawn" />
+            </Box>
+            <Box>Players</Box>
+          </Container>
         </NavLink>
         <NavLink activeClassName="active" to="/gamesnight/">
-          <FontAwesomeIcon icon="star" />
+          <Container>
+            <Box size={22}>
+              <FontAwesomeIcon icon="star" />
+            </Box>
+            <Box>Plan</Box>
+          </Container>
         </NavLink>
         <NavLink activeClassName="active" to="/mygamesnight/">
-          <FontAwesomeIcon icon="heart" />
+          <Container>
+            <Box size={22}>
+              <FontAwesomeIcon icon="heart" />
+            </Box>
+            <Box>Night</Box>
+          </Container>
         </NavLink>
       </Nav>
     )
