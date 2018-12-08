@@ -32,10 +32,14 @@ export default class GameTag extends Component {
   render() {
     const { id, title } = this.props
     return (
-      <Wrapper>
+      <Wrapper data-cy="GameTagWithWinner">
         <Title>{title}</Title>
         <FontAwesomeIcon icon="trophy" />
-        <SelectWinner id={id} onChange={this.handleChange}>
+        <SelectWinner
+          data-cy={'SelectWinner' + id}
+          id={id}
+          onChange={this.handleChange}
+        >
           {this.renderAllOptionsForSelect()}
         </SelectWinner>
       </Wrapper>

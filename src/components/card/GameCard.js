@@ -50,6 +50,7 @@ export default class GameCard extends Component {
 
   render() {
     const {
+      id,
       title,
       imgScr,
       numPlayers,
@@ -67,7 +68,7 @@ export default class GameCard extends Component {
         <CardContent>
           <Title>{title}</Title>
           <ToggleIcon
-            data-cy="Toggle"
+            data-cy={'Toggle' + id}
             onClick={onClick}
             className={isExpanded ? 'rotate' : ''}
           >
@@ -77,7 +78,7 @@ export default class GameCard extends Component {
           <GameDetails>{playingTime} Min</GameDetails>
           <GameDetails>Age: {age}</GameDetails>
           <ExpandCardContent
-            data-cy="ExpandContent"
+            data-cy={'ExpandContent' + id}
             className={isExpanded ? 'expand' : ''}
           >
             <Separator />

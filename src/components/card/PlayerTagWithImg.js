@@ -26,7 +26,7 @@ export default class PlayerTagWithImg extends Component {
   render() {
     const { name, imgScr } = this.props
     return (
-      <Wrapper>
+      <Wrapper data-cy="PlayerTag">
         <ImageContainer>
           <Image src={imgScr} alt="" />
         </ImageContainer>

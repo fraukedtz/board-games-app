@@ -64,6 +64,7 @@ export default class PlayerCard extends Component {
 
   render() {
     const {
+      id,
       name,
       imgScr,
       userName,
@@ -80,14 +81,14 @@ export default class PlayerCard extends Component {
           </ImageContainer>
           <Title>{name}</Title>
           <BookmarkIcon
-            data-cy="Bookmark"
+            data-cy={'Bookmark' + id}
             onClick={onToggleBookmark}
             className={isPlayerBookmarked ? 'bookmarked' : null}
           >
             <FontAwesomeIcon icon="star" />
           </BookmarkIcon>
           <ToggleIcon
-            data-cy="Toggle"
+            data-cy={'Toggle' + id}
             onClick={onClick}
             className={isExpanded ? 'rotate' : ''}
           >
@@ -95,7 +96,7 @@ export default class PlayerCard extends Component {
           </ToggleIcon>
           <Username>{userName}</Username>
           <ExpandCardContent
-            data-cy="ExpandContent"
+            data-cy={'ExpandContent' + id}
             className={isExpanded ? 'expand' : ''}
           >
             <Separator />

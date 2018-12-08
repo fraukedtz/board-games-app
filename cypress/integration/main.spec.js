@@ -14,8 +14,8 @@ describe('App', () => {
 })
 
 describe('Navigation', () => {
-  it('has three buttons', () => {
-    cy.get('nav > a').should('have.length', 3)
+  it('has four buttons', () => {
+    cy.get('nav > a').should('have.length', 4)
   })
 
   it('has active button', () => {
@@ -37,17 +37,27 @@ describe('Navigation', () => {
 
     cy.url().should('contain', '/')
   })
+
+  it('changes path on Plan click', () => {
+    cy.get('nav > a')
+      .find('.fa-star')
+      .click()
+
+    cy.url().should('contain', '/gamesnight')
+  })
+
+  it('changes path on Night click', () => {
+    cy.get('nav > a')
+      .find('.fa-heart')
+      .click()
+
+    cy.url().should('contain', '/mygamesnight')
+  })
 })
 
 describe('View Game Cards', () => {
   it('navigates to games', function() {
     cy.visit('http://localhost:3000/')
-  })
-
-  it('has a Header with text Games', () => {
-    cy.get('[data-cy="Header"]')
-      .contains('Games')
-      .should('have.length', 1)
   })
 
   it('loads all game cards', function() {
@@ -60,25 +70,25 @@ describe('View Game Cards', () => {
       .should('have.length', 1)
   })
 
-  it('expands all game cards', function() {
-    cy.get('[data-cy="Toggle"]')
-      .should('have.length', 5)
-      .click({ multiple: true })
+  it('expands a game card (Settlers of Catan - 1)', function() {
+    cy.get('[data-cy="Toggle1"]')
+      .should('have.length', 1)
+      .click()
 
-    cy.get('[data-cy="ExpandContent"]')
+    cy.get('[data-cy="ExpandContent1"]')
       .should('have.class', 'expand')
-      .should('have.length', 5)
+      .should('have.length', 1)
   })
 
-  it('collapses all game cards', function() {
-    cy.get('[data-cy="Toggle"]')
+  it('collapses a game card (Settlers of Catan - 1)', function() {
+    cy.get('[data-cy="Toggle1"]')
       .should('have.class', 'rotate')
-      .should('have.length', 5)
-      .click({ multiple: true, force: true })
+      .should('have.length', 1)
+      .click()
 
-    cy.get('[data-cy="ExpandContent"]')
+    cy.get('[data-cy="ExpandContent1"]')
       .not('.expand')
-      .should('have.length', 5)
+      .should('have.length', 1)
   })
 })
 
@@ -87,55 +97,136 @@ describe('View Player Cards', () => {
     cy.visit('http://localhost:3000/players')
   })
 
-  it('has a Header with text Players', () => {
-    cy.get('[data-cy="Header"]')
-      .contains('Players')
-      .should('have.length', 1)
-  })
-
   it('loads all player cards', function() {
-    cy.get('[data-cy="PlayerCard"]').should('have.length', 11)
+    cy.get('[data-cy="PlayerCard"]').should('have.length', 9)
   })
 
-  it('has a card with text Frauke', function() {
+  it('has a card with text Jerry', function() {
     cy.get('[data-cy="PlayerCard"]')
-      .contains('Frauke')
+      .contains('Jerry')
       .should('have.length', 1)
   })
 
-  it('expands all player cards', function() {
-    cy.get('[data-cy="Toggle"]')
-      .should('have.length', 11)
-      .click({ multiple: true })
+  it('expands a player card (Jerry - 3)', function() {
+    cy.get('[data-cy="Toggle3"]')
+      .should('have.length', 1)
+      .click()
 
-    cy.get('[data-cy="ExpandContent"]')
+    cy.get('[data-cy="ExpandContent3"]')
       .should('have.class', 'expand')
-      .should('have.length', 11)
+      .should('have.length', 1)
   })
 
-  it('collapses all player cards', function() {
-    cy.get('[data-cy="Toggle"]')
+  it('collapses a player card (Jerry - 3)', function() {
+    cy.get('[data-cy="Toggle3"]')
       .should('have.class', 'rotate')
-      .should('have.length', 11)
-      .click({ multiple: true, force: true })
+      .should('have.length', 1)
+      .click()
 
-    cy.get('[data-cy="ExpandContent"]')
+    cy.get('[data-cy="ExpandContent3"]')
       .not('.expand')
-      .should('have.length', 11)
+      .should('have.length', 1)
   })
 })
 
-//   it('has an input', () => {
-//     cy.get('input[placeholder="Enter new todo"]').should('have.length', 2)
-//   })
+describe('Bookmark players', () => {
+  it('bookmarks a player (Jerry - 3)', function() {
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.length', 1)
+      .click()
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+  })
+  it('unbookmarks a player (Jerry - 3)', function() {
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+      .click()
+    cy.get('[data-cy="Bookmark3"]')
+      .not('.bookmarked')
+      .should('have.length', 1)
+  })
+})
 
-//   it('can add a Todo', () => {
-//     cy.get('input[placeholder="Enter new todo"]')
-//       .type('Hello')
-//       .type('{Enter}')
+describe('Plan Games Night', () => {
+  it('toggles add/remove a player (Jerry - 3) to/from games night', function() {
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.length', 1)
+      .click()
 
-//     cy.get('[data-cy="Todo"]')
-//       .should('have.length', 1)
-//       .should('contain', 'Hello')
-//   })
-// })
+    cy.visit('http://localhost:3000/gamesnight')
+
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="Bookmark3"]').should('have.length', 0)
+  })
+
+  it('toggles add/remove a game (Catan - 1) to/from games night and select winner', function() {
+    cy.visit('http://localhost:3000/players')
+
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="Bookmark1"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="Bookmark2"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="Bookmark9"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.visit('http://localhost:3000/gamesnight')
+
+    cy.get('[data-cy="Bookmark3"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+
+    cy.get('[data-cy="Bookmark1"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+
+    cy.get('[data-cy="Bookmark2"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+
+    cy.get('[data-cy="Bookmark9"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+
+    cy.get('[data-cy="BookmarkGame1"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="BookmarkGame1"]')
+      .should('have.class', 'bookmarked')
+      .should('have.length', 1)
+      .click()
+
+    cy.get('[data-cy="BookmarkGame1"]')
+      .not('have.class', 'bookmarked')
+      .should('have.length', 1)
+
+    cy.get('[data-cy="BookmarkGame1"]')
+      .should('have.length', 1)
+      .click()
+
+    cy.visit('http://localhost:3000/mygamesnight')
+
+    cy.get('[data-cy="PlayerTag"]').should('have.length', 4)
+    cy.get('[data-cy="GameTagWithWinner"]').should('have.length', 1)
+
+    cy.get('[data-cy="SelectWinner1"]')
+      .should('have.length', 1)
+      .select('Jerry')
+      .should('have.value', '3')
+  })
+})
