@@ -121,7 +121,7 @@ describe('View Player Cards', () => {
     cy.get('[data-cy="Toggle3"]')
       .should('have.class', 'rotate')
       .should('have.length', 1)
-      .click()
+      .click({ force: true })
 
     cy.get('[data-cy="ExpandContent3"]')
       .not('.expand')
