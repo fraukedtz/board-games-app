@@ -23,8 +23,8 @@ const Wrapper = styled.div`
 export default class App extends Component {
   state = {
     gamesNight: {
-      players: this.loadBookmarkedPlayers() || [],
-      games: this.loadBookmarkedGames() || []
+      players: [],
+      games: []
     },
     players: [
       {
@@ -565,8 +565,6 @@ export default class App extends Component {
   }
 
   render() {
-    this.saveBookmarkedPlayers()
-    this.saveBookmarkedGames()
     return (
       <Router>
         <Wrapper>
@@ -682,25 +680,6 @@ export default class App extends Component {
     return newbookmarkedPlayers
   }
 
-  saveBookmarkedPlayers() {
-    localStorage.setItem(
-      'board-games-app--bookmarkedPlayers',
-      JSON.stringify(this.state.gamesNight.players)
-    )
-  }
-
-  loadBookmarkedPlayers() {
-    try {
-      return (
-        JSON.parse(
-          localStorage.getItem('board-games-app--bookmarkedPlayers')
-        ) || []
-      )
-    } catch (err) {
-      return []
-    }
-  }
-
   toggleBookmarkGame = game => {
     const { gamesNight } = this.state
     const newbookmarkedGames = gamesNight.games.some(g => g.id === game.id)
@@ -733,24 +712,6 @@ export default class App extends Component {
       : [...gamesNight.games, game]
 
     return newbookmarkedGames
-  }
-
-  saveBookmarkedGames() {
-    localStorage.setItem(
-      'board-games-app--bookmarkedGames',
-      JSON.stringify(this.state.gamesNight.games)
-    )
-  }
-
-  loadBookmarkedGames() {
-    try {
-      return (
-        JSON.parse(localStorage.getItem('board-games-app--bookmarkedGames')) ||
-        []
-      )
-    } catch (err) {
-      return []
-    }
   }
 
   addWinnerToGame = (gameId, playerId) => {
