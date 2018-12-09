@@ -14,6 +14,16 @@ import ImgScrabble from '../images/games/scrabble.jpg'
 import ImgQwirkle from '../images/games/qwirkle.jpg'
 import ImgMonopoly from '../images/games/monopoly.jpg'
 
+import ImgAlex from '../images/players/alex.jpeg'
+import ImgChris from '../images/players/chris.jpeg'
+import ImgFrauke from '../images/players/frauke.jpeg'
+import ImgHans from '../images/players/hans.jpeg'
+import ImgJan from '../images/players/jan.jpeg'
+import ImgJerry from '../images/players/jerry.jpg'
+import ImgKelly from '../images/players/kelly.jpeg'
+import ImgLukas from '../images/players/lukas.jpeg'
+import ImgMelanie from '../images/players/melanie.jpeg'
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 60px auto 60px;
@@ -30,7 +40,7 @@ export default class App extends Component {
       {
         id: '1',
         name: 'Frauke',
-        imgScr: 'https://source.unsplash.com/1600x900/?cat',
+        imgScr: ImgFrauke,
         userName: '@frauks',
         isExpanded: false,
         likedGames: [
@@ -64,7 +74,7 @@ export default class App extends Component {
       {
         id: '2',
         name: 'Alex',
-        imgScr: 'https://source.unsplash.com/1600x900/?beach',
+        imgScr: ImgAlex,
         userName: '@alex',
         isExpanded: false,
         likedGames: [
@@ -99,7 +109,7 @@ export default class App extends Component {
       {
         id: '3',
         name: 'Jerry',
-        imgScr: 'https://source.unsplash.com/1600x900/?developer',
+        imgScr: ImgJerry,
         userName: '@jerry',
         isExpanded: false,
         likedGames: [
@@ -137,7 +147,7 @@ export default class App extends Component {
       {
         id: '4',
         name: 'Chris',
-        imgScr: 'https://source.unsplash.com/1600x900/?business',
+        imgScr: ImgChris,
         userName: '@chris',
         isExpanded: false,
         likedGames: [
@@ -176,7 +186,7 @@ export default class App extends Component {
       {
         id: '5',
         name: 'Kelly',
-        imgScr: 'https://source.unsplash.com/1600x900/?ocean',
+        imgScr: ImgKelly,
         userName: '@kelly',
         isExpanded: false,
         likedGames: [
@@ -201,7 +211,7 @@ export default class App extends Component {
       {
         id: '6',
         name: 'Hans',
-        imgScr: 'https://source.unsplash.com/1600x900/?autumn',
+        imgScr: ImgHans,
         userName: '@hans',
         isExpanded: false,
         likedGames: [
@@ -236,7 +246,7 @@ export default class App extends Component {
       {
         id: '7',
         name: 'Jan',
-        imgScr: 'https://source.unsplash.com/1600x900/?creative',
+        imgScr: ImgJan,
         userName: '@jan',
         isExpanded: false,
         likedGames: [
@@ -266,7 +276,7 @@ export default class App extends Component {
       {
         id: '8',
         name: 'Melanie',
-        imgScr: 'https://source.unsplash.com/1600x900/?summer',
+        imgScr: ImgMelanie,
         userName: '@melanie',
         isExpanded: false,
         likedGames: [
@@ -296,7 +306,7 @@ export default class App extends Component {
       {
         id: '9',
         name: 'Lukas',
-        imgScr: 'https://source.unsplash.com/1600x900/?sport',
+        imgScr: ImgLukas,
         userName: '@lukas',
         isExpanded: false,
         likedGames: [
