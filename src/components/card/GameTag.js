@@ -9,7 +9,7 @@ const BookmarkIcon = styled.div`
   justify-content: center;
 
   &.bookmarked {
-    color: deeppink;
+    color: #fe1251;
   }
 `
 
