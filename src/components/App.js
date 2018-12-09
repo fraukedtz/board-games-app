@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
+    searchQueryPlayers: '',
     gamesNight: {
       players: [],
       games: []
@@ -596,6 +597,8 @@ export default class App extends Component {
                 onToggleExpand={this.toggleExpandPlayerCard}
                 gamesNight={this.state.gamesNight}
                 onToggleBookmark={this.toggleBookmark}
+                searchQuery={this.state.searchQueryPlayers}
+                setSearchQueryPlayers={this.setSearchQueryPlayers}
               />
             )}
           />
@@ -635,6 +638,12 @@ export default class App extends Component {
     ]
     this.setState({
       games: updatedGames
+    })
+  }
+
+  setSearchQueryPlayers = query => {
+    this.setState({
+      searchQueryPlayers: query
     })
   }
 
