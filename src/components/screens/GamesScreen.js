@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Header from '../Header'
 import CardsContainer from '../card/CardsContainer'
 import GameCard from '../card/GameCard'
 
@@ -7,6 +8,7 @@ export default class GamesScreen extends Component {
   render() {
     return (
       <React.Fragment>
+        <Header text={'Games'} />
         <CardsContainer>{this.renderAllGames()}</CardsContainer>
       </React.Fragment>
     )

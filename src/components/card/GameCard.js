@@ -10,7 +10,6 @@ import Separator from './Separator'
 import TagListHeading from './TagListHeading'
 import TagList from './TagList'
 import CardContent from './CardContent'
-// import CardTitle from './CardTitle'
 import ExpandCardContent from './ExpandCardContent'
 
 const ImageContainer = styled.div`

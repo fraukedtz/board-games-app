@@ -16,7 +16,7 @@ import ImgMonopoly from '../images/games/monopoly.jpg'
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: auto 60px;
+  grid-template-rows: 60px auto 60px;
   height: 100vh;
 `
 

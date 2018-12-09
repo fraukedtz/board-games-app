@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 body {
-  background-color: #eee;
+  background-color: #fefefe;
   color: #333;
   font-family: 'Muli', sans-serif;
   margin: 0;
