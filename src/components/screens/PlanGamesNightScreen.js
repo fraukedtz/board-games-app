@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 
 import Header from '../Header'
 import Container from '../gamesnight/Container'
-import PlayerTag from '../card/PlayerTag'
-import GameTag from '../card/GameTag'
-import SubHeading from '../card/SubHeading'
-import GamesContainer from '../styledcomponents/GamesContainer'
+import SubHeading from '../gamesnight/SubHeading'
 import PlayersContainer from '../styledcomponents/PlayersContainer'
+import PlayerTag from '../gamesnight/PlayerTag'
+import GamesContainer from '../styledcomponents/GamesContainer'
+import GameTag from '../gamesnight/GameTag'
 
-export default class GamesNightScreen extends Component {
+export default class PlanGamesNightScreen extends Component {
   render() {
     return (
       <React.Fragment>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Heading = styled.h4`
   margin: 0;
-  padding: ${props => props.padding || 0}px;
+  padding: 0;
 `
 
 export default class TagListHeading extends Component {

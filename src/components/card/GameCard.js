@@ -5,10 +5,10 @@ import styled from 'styled-components'
 
 import Card from './Card'
 import GameDetails from '../styledcomponents/GameDetails'
-import ToggleIcon from './ToggleIcon'
-import Separator from './Separator'
+import ToggleIcon from '../styledcomponents/ToggleIcon'
+import Separator from '../styledcomponents/Separator'
 import TagListHeading from './TagListHeading'
-import TagList from './TagList'
+import TagList from '../styledcomponents/TagList'
 import CardContent from './CardContent'
 import ExpandCardContent from './ExpandCardContent'
 
@@ -109,17 +109,17 @@ export default class GameCard extends Component {
       .map(this.renderSingleKeenPlayer)
   }
 
-  renderOwnedByPlayers() {
-    return this.props.owners
-      .sort((a, b) => (a.name < b.name ? -1 : 1))
-      .map(this.renderSingleOwnerPlayer)
-  }
-
   renderSingleKeenPlayer = player => (
     <li key={player.key} className={player.ownsGame ? 'owns' : ''}>
       {player.name}
     </li>
   )
+
+  renderOwnedByPlayers() {
+    return this.props.owners
+      .sort((a, b) => (a.name < b.name ? -1 : 1))
+      .map(this.renderSingleOwnerPlayer)
+  }
 
   renderSingleOwnerPlayer = player => (
     <li key={player.key} className={'owns'}>

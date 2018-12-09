@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import GamesScreen from './screens/GamesScreen'
 import PlayersScreen from './screens/PlayersScreen'
-import GamesNightScreen from './screens/GamesNightScreen'
+import PlanGamesNightScreen from './screens/PlanGamesNightScreen'
 import MyGamesNightScreen from './screens/MyGamesNightScreen'
 import Navigation from './Navigation'
 
@@ -600,9 +600,9 @@ export default class App extends Component {
             )}
           />
           <Route
-            path="/gamesnight/"
+            path="/plangamesnight/"
             render={() => (
-              <GamesNightScreen
+              <PlanGamesNightScreen
                 gamesNight={this.state.gamesNight}
                 onToggleBookmark={this.toggleBookmark}
                 onToggleBookmarkGame={this.toggleBookmarkGame}

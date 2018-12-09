@@ -66,7 +66,7 @@ export default class Navigation extends Component {
             <Box>Players</Box>
           </Container>
         </NavLink>
-        <NavLink activeClassName="active" to="/gamesnight/">
+        <NavLink activeClassName="active" to="/plangamesnight/">
           <Container>
             <Box size={22}>
               <FontAwesomeIcon icon="star" />

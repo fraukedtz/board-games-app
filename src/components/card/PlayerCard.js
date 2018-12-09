@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
 import Card from './Card'
-import ToggleIcon from './ToggleIcon'
-import Separator from './Separator'
+import BookmarkIcon from '../styledcomponents/BookmarkIcon'
+import ToggleIcon from '../styledcomponents/ToggleIcon'
+import Separator from '../styledcomponents/Separator'
 import TagListHeading from './TagListHeading'
-import TagList from './TagList'
+import TagList from '../styledcomponents/TagList'
 import CardContent from './CardContent'
 import ExpandCardContent from './ExpandCardContent'
 
@@ -35,17 +36,6 @@ const Title = styled.h2`
   display: flex;
   grid-column-start: span 1;
   margin: 0;
-`
-const BookmarkIcon = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: 20px;
-  grid-row-start: span 2;
-  justify-content: center;
-
-  &.bookmarked {
-    color: #fe1251;
-  }
 `
 
 export default class PlayerCard extends Component {
@@ -128,17 +118,17 @@ export default class PlayerCard extends Component {
       .map(this.renderSingleLikedGame)
   }
 
-  renderOwnedGames() {
-    return this.props.ownedGames
-      .sort((a, b) => (a.title < b.title ? -1 : 1))
-      .map(this.renderSingleOwnedGame)
-  }
-
   renderSingleLikedGame = game => (
     <li key={game.key} className={game.isOwned ? 'owns' : ''}>
       {game.title}
     </li>
   )
+
+  renderOwnedGames() {
+    return this.props.ownedGames
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleOwnedGame)
+  }
 
   renderSingleOwnedGame = game => (
     <li key={game.key} className={'owns'}>

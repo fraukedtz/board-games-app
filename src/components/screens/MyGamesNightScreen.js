@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import Header from '../Header'
 import Container from '../gamesnight/Container'
-import PlayerTagWithImg from '../card/PlayerTagWithImg'
-import GameTagWithWinner from '../card/GameTagWithWinner'
-import SubHeading from '../card/SubHeading'
-import GamesContainer from '../styledcomponents/GamesContainer'
+import SubHeading from '../gamesnight/SubHeading'
 import PlayersContainer from '../styledcomponents/PlayersContainer'
+import PlayerTagWithImg from '../gamesnight/PlayerTagWithImg'
+import GamesContainer from '../styledcomponents/GamesContainer'
+import GameTagWithWinner from '../gamesnight/GameTagWithWinner'
 
 export default class MyGamesNightScreen extends Component {
   render() {
