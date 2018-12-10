@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
 import Input from '../Input'
 import CardsContainer from '../card/CardsContainer'

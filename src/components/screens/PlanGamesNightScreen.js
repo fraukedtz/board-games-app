@@ -17,7 +17,10 @@ export default class PlanGamesNightScreen extends Component {
           {this.props.gamesNight.players.length > 0 ? null : (
             <React.Fragment>
               Let's go - start adding players to your games night by bookmarking
-              players on the players screen! 😎
+              players on the players screen!{' '}
+              <span role="img" aria-label="smiling face with sunglasses">
+                😎
+              </span>
             </React.Fragment>
           )}
 
