@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
+    searchQueryGames: '',
     searchQueryPlayers: '',
     gamesNight: {
       players: [],
@@ -586,6 +587,8 @@ export default class App extends Component {
               <GamesScreen
                 games={this.state.games}
                 onToggleExpand={this.toggleExpandGamesCard}
+                searchQuery={this.state.searchQueryGames}
+                setSearchQuery={this.setSearchQuery}
               />
             )}
           />
@@ -595,10 +598,10 @@ export default class App extends Component {
               <PlayersScreen
                 players={this.state.players}
                 onToggleExpand={this.toggleExpandPlayerCard}
-                gamesNight={this.state.gamesNight}
-                onToggleBookmark={this.toggleBookmark}
                 searchQuery={this.state.searchQueryPlayers}
-                setSearchQueryPlayers={this.setSearchQueryPlayers}
+                setSearchQuery={this.setSearchQuery}
+                onToggleBookmark={this.toggleBookmark}
+                gamesNight={this.state.gamesNight}
               />
             )}
           />
@@ -641,12 +644,6 @@ export default class App extends Component {
     })
   }
 
-  setSearchQueryPlayers = query => {
-    this.setState({
-      searchQueryPlayers: query
-    })
-  }
-
   toggleExpandPlayerCard = id => {
     const { players } = this.state
     const index = players.findIndex(p => p.id === id)
@@ -659,6 +656,21 @@ export default class App extends Component {
     this.setState({
       players: updatedPlayers
     })
+  }
+
+  setSearchQuery = (id, query) => {
+    id === 'games'
+      ? this.setState({
+          searchQueryGames: query
+        })
+      : id === 'players'
+      ? this.setState({
+          searchQueryPlayers: query
+        })
+      : this.setState({
+          searchQueryGames: '',
+          searchQueryPlayers: ''
+        })
   }
 
   toggleBookmark = player => {

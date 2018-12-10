@@ -12,7 +12,7 @@ const StyledInput = styled.input`
 
 export default class Input extends Component {
   handleKeyUp = event => {
-    this.props.setSearchQueryPlayers(event.target.value)
+    this.props.setSearchQuery(this.props.id, event.target.value)
   }
 
   render() {
@@ -20,7 +20,7 @@ export default class Input extends Component {
       <StyledInput
         data-cy="Input"
         onKeyUp={this.handleKeyUp}
-        placeholder="Search player name..."
+        placeholder={this.props.text}
       />
     )
   }

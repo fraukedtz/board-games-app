@@ -1,23 +1,42 @@
 import React, { Component } from 'react'
 
-import Header from '../Header'
+import Input from '../Input'
 import CardsContainer from '../card/CardsContainer'
 import GameCard from '../card/GameCard'
 
 export default class GamesScreen extends Component {
   render() {
+    const { setSearchQuery, searchQuery } = this.props
     return (
       <React.Fragment>
-        <Header text={'Games'} />
-        <CardsContainer>{this.renderAllGames()}</CardsContainer>
+        <Input
+          id="games"
+          text="Search game title..."
+          setSearchQuery={setSearchQuery}
+        />
+        <CardsContainer>{this.renderGames(searchQuery)}</CardsContainer>
       </React.Fragment>
     )
+  }
+
+  renderGames(query) {
+    return query === '' ? this.renderAllGames() : this.renderSearchGames(query)
   }
 
   renderAllGames() {
     return this.props.games
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)
+  }
+
+  renderSearchGames = query => {
+    const filteredGames = this.props.games.filter(game => {
+      return game.title.toLowerCase().indexOf(query.toLowerCase()) > -1
+    })
+
+    return filteredGames.length >= 1
+      ? filteredGames.map(this.renderSingleGame)
+      : `No results found for "${query}"`
   }
 
   renderSingleGame = game => (

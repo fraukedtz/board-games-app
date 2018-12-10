@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import Input from '../Input'
 import CardsContainer from '../card/CardsContainer'
 import PlayerCard from '../card/PlayerCard'
-import Input from '../Input'
 
 export default class PlayersScreen extends Component {
   render() {
-    const { setSearchQueryPlayers, searchQuery } = this.props
+    const { setSearchQuery, searchQuery } = this.props
     return (
       <React.Fragment>
-        <Input setSearchQueryPlayers={setSearchQueryPlayers} />
+        <Input
+          id="players"
+          text="Search player name..."
+          setSearchQuery={setSearchQuery}
+        />
         <CardsContainer>{this.renderPlayers(searchQuery)}</CardsContainer>
       </React.Fragment>
     )
