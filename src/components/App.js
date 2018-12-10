@@ -35,8 +35,8 @@ export default class App extends Component {
     searchQueryGames: '',
     searchQueryPlayers: '',
     gamesNight: {
-      players: [],
-      games: []
+      players: this.loadBookmarkedPlayers() || [],
+      games: this.loadBookmarkedGames() || []
     },
     players: [
       {
@@ -577,6 +577,8 @@ export default class App extends Component {
   }
 
   render() {
+    this.saveBookmarkedPlayers()
+    this.saveBookmarkedGames()
     return (
       <Router>
         <Wrapper>
@@ -763,5 +765,42 @@ export default class App extends Component {
         games: updatedGames
       }
     })
+  }
+
+  saveBookmarkedPlayers() {
+    localStorage.setItem(
+      'board-games-app--bookmarkedPlayers',
+      JSON.stringify(this.state.gamesNight.players)
+    )
+  }
+
+  loadBookmarkedPlayers() {
+    try {
+      return (
+        JSON.parse(
+          localStorage.getItem('board-games-app--bookmarkedPlayers')
+        ) || []
+      )
+    } catch (err) {
+      return []
+    }
+  }
+
+  saveBookmarkedGames() {
+    localStorage.setItem(
+      'board-games-app--bookmarkedGames',
+      JSON.stringify(this.state.gamesNight.games)
+    )
+  }
+
+  loadBookmarkedGames() {
+    try {
+      return (
+        JSON.parse(localStorage.getItem('board-games-app--bookmarkedGames')) ||
+        []
+      )
+    } catch (err) {
+      return []
+    }
   }
 }

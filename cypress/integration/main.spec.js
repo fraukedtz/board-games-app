@@ -43,7 +43,7 @@ describe('Navigation', () => {
       .find('.fa-star')
       .click()
 
-    cy.url().should('contain', '/gamesnight')
+    cy.url().should('contain', '/plangamesnight')
   })
 
   it('changes path on Night click', () => {
@@ -155,7 +155,7 @@ describe('Plan Games Night', () => {
       .should('have.length', 1)
       .click()
 
-    cy.visit('http://localhost:3000/gamesnight')
+    cy.visit('http://localhost:3000/plangamesnight')
 
     cy.get('[data-cy="Bookmark3"]')
       .should('have.class', 'bookmarked')
@@ -184,7 +184,7 @@ describe('Plan Games Night', () => {
       .should('have.length', 1)
       .click()
 
-    cy.visit('http://localhost:3000/gamesnight')
+    cy.visit('http://localhost:3000/plangamesnight')
 
     cy.get('[data-cy="Bookmark3"]')
       .should('have.class', 'bookmarked')
