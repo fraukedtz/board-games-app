@@ -20,8 +20,8 @@ const Title = styled.div`
 const SelectWinner = styled.select`
   border: none;
   color: #333;
-  font-size: 14px;
-  padding-left: 5px;
+  font-size: 1em;
+  padding: 10px;
 `
 
 export default class GameTag extends Component {
