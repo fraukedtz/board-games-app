@@ -77,7 +77,7 @@ export default class App extends Component {
         id: '2',
         name: 'Alex',
         imgScr: ImgAlex,
-        userName: '@alex',
+        userName: '@alexx',
         isExpanded: false,
         likedGames: [
           {
@@ -112,7 +112,7 @@ export default class App extends Component {
         id: '3',
         name: 'Jerry',
         imgScr: ImgJerry,
-        userName: '@jerry',
+        userName: '@badabam',
         isExpanded: false,
         likedGames: [
           {
@@ -150,7 +150,7 @@ export default class App extends Component {
         id: '4',
         name: 'Chris',
         imgScr: ImgChris,
-        userName: '@chris',
+        userName: '@chriscar',
         isExpanded: false,
         likedGames: [
           {
@@ -189,7 +189,7 @@ export default class App extends Component {
         id: '5',
         name: 'Kelly',
         imgScr: ImgKelly,
-        userName: '@kelly',
+        userName: '@kellyk',
         isExpanded: false,
         likedGames: [
           {
@@ -214,7 +214,7 @@ export default class App extends Component {
         id: '6',
         name: 'Hans',
         imgScr: ImgHans,
-        userName: '@hans',
+        userName: '@hansjo',
         isExpanded: false,
         likedGames: [
           {
@@ -249,7 +249,7 @@ export default class App extends Component {
         id: '7',
         name: 'Jan',
         imgScr: ImgJan,
-        userName: '@jan',
+        userName: '@janno',
         isExpanded: false,
         likedGames: [
           {
@@ -279,7 +279,7 @@ export default class App extends Component {
         id: '8',
         name: 'Melanie',
         imgScr: ImgMelanie,
-        userName: '@melanie',
+        userName: '@mel',
         isExpanded: false,
         likedGames: [
           {
@@ -309,7 +309,7 @@ export default class App extends Component {
         id: '9',
         name: 'Lukas',
         imgScr: ImgLukas,
-        userName: '@lukas',
+        userName: '@luks',
         isExpanded: false,
         likedGames: [
           {

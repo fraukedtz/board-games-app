@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  background: teal;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   align-items: center;
   background: #eaeaea;
   border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   padding: 10px;
 `
 
