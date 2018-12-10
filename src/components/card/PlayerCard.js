@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
+import ImgDefault from '../../images/players/default.png'
 import Card from './Card'
 import BookmarkIcon from '../styledcomponents/BookmarkIcon'
 import ToggleIcon from '../styledcomponents/ToggleIcon'
@@ -48,8 +49,7 @@ export default class PlayerCard extends Component {
   }
 
   static defaultProps = {
-    imgScr:
-      'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg'
+    imgScr: ImgDefault
   }
 
   render() {
