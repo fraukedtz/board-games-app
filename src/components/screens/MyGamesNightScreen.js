@@ -58,15 +58,15 @@ export default class MyGamesNightScreen extends Component {
       .map(this.renderSingleGame)
   }
 
-  getImgScr = gameId => {
+  imgSrc = gameId => {
     const game = this.props.games.find(g => g.id === gameId)
-    return game.imgScr
+    return game.imgSrc
   }
 
   renderSingleGame = game => (
     <GameTagWithWinner
       key={game.id}
-      imgScr={this.getImgScr(game.id)}
+      imgSrc={this.imgSrc(game.id)}
       {...game}
       players={this.props.gamesNight.players}
       addWinnerToGame={this.props.addWinnerToGame}

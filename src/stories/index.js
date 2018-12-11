@@ -19,7 +19,7 @@ storiesOf('GameCard', module).add('card with text', () => (
     {/* <StyleBox h={400} /> */}
     <GameCard
       title={text('Game title', 'The Settlers of Catan')}
-      imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
+      imgSrc="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players', '2-3')}
       playingTime={text('Game duration', '60-120')}
       age={text('Age', '10+')}
@@ -36,7 +36,7 @@ storiesOf('GameCard', module).add('card with text', () => (
     />
     <GameCard
       title={text('Game title2', 'The Settlers of Catan')}
-      imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
+      imgSrc="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players2', '2-3')}
       playingTime={text('Game duration2', '60-120')}
       age={text('Age2', '10+')}
@@ -53,7 +53,7 @@ storiesOf('GameCard', module).add('card with text', () => (
     />
     <GameCard
       title={text('Game title3', 'The Settlers of Catan')}
-      imgScr="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
+      imgSrc="https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg"
       numPlayers={text('Number of players3', '2-3')}
       playingTime={text('Game duration3', '60-120')}
       age={text('Age2', '10+')}
@@ -69,7 +69,7 @@ storiesOf('PlayerCard', module).add('card with text', () => (
     {/* <StyleBox h={400} /> */}
     <PlayerCard
       name={text('Player name', 'Chris')}
-      imgScr="https://source.unsplash.com/1600x900/?city"
+      imgSrc="https://source.unsplash.com/1600x900/?city"
       userName={text('Username', '@chris')}
       isExpanded={boolean('isExpanded', false)}
       onClick={action('onClick')}
@@ -105,7 +105,7 @@ storiesOf('PlayerCard', module).add('card with text', () => (
     />
     <PlayerCard
       name={text('Player name2', 'Chris')}
-      imgScr="https://source.unsplash.com/1600x900/?city"
+      imgSrc="https://source.unsplash.com/1600x900/?city"
       userName={text('Username2', '@chris')}
       isExpanded={boolean('isExpanded2', true)}
       onClick={action('onClick2')}
@@ -141,7 +141,7 @@ storiesOf('PlayerCard', module).add('card with text', () => (
     />
     <PlayerCard
       name={text('Player name3', 'Chris')}
-      imgScr="https://source.unsplash.com/1600x900/?city"
+      imgSrc="https://source.unsplash.com/1600x900/?city"
       userName={text('Username3', '@chris')}
       isExpanded={boolean('isExpanded3', true)}
       onClick={action('onClick3')}

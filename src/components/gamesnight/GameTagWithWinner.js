@@ -50,12 +50,12 @@ export default class GameTag extends Component {
   }
 
   render() {
-    const { id, title } = this.props
+    const { id, title, imgSrc } = this.props
     return (
       <Wrapper
         data-cy="GameTagWithWinner"
         style={{
-          backgroundImage: `url(${this.props.imgScr})`
+          backgroundImage: `url(${imgSrc})`
         }}
       >
         <TitleContainer>

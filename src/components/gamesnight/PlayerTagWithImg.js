@@ -24,11 +24,11 @@ const Image = styled.img`
 
 export default class PlayerTagWithImg extends Component {
   render() {
-    const { name, imgScr } = this.props
+    const { name, imgSrc } = this.props
     return (
       <Wrapper data-cy="PlayerTag">
         <ImageContainer>
-          <Image src={imgScr} alt="" />
+          <Image src={imgSrc} alt="" />
         </ImageContainer>
         {name}
       </Wrapper>

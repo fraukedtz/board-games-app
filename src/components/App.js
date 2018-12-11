@@ -42,7 +42,7 @@ export default class App extends Component {
       {
         id: '1',
         name: 'Frauke',
-        imgScr: ImgFrauke,
+        imgSrc: ImgFrauke,
         userName: '@frauks',
         isExpanded: false,
         likedGames: [
@@ -76,7 +76,7 @@ export default class App extends Component {
       {
         id: '2',
         name: 'Alex',
-        imgScr: ImgAlex,
+        imgSrc: ImgAlex,
         userName: '@alexx',
         isExpanded: false,
         likedGames: [
@@ -111,7 +111,7 @@ export default class App extends Component {
       {
         id: '3',
         name: 'Jerry',
-        imgScr: ImgJerry,
+        imgSrc: ImgJerry,
         userName: '@badabam',
         isExpanded: false,
         likedGames: [
@@ -149,7 +149,7 @@ export default class App extends Component {
       {
         id: '4',
         name: 'Chris',
-        imgScr: ImgChris,
+        imgSrc: ImgChris,
         userName: '@chriscar',
         isExpanded: false,
         likedGames: [
@@ -188,7 +188,7 @@ export default class App extends Component {
       {
         id: '5',
         name: 'Kelly',
-        imgScr: ImgKelly,
+        imgSrc: ImgKelly,
         userName: '@kellyk',
         isExpanded: false,
         likedGames: [
@@ -213,7 +213,7 @@ export default class App extends Component {
       {
         id: '6',
         name: 'Hans',
-        imgScr: ImgHans,
+        imgSrc: ImgHans,
         userName: '@hansjo',
         isExpanded: false,
         likedGames: [
@@ -248,7 +248,7 @@ export default class App extends Component {
       {
         id: '7',
         name: 'Jan',
-        imgScr: ImgJan,
+        imgSrc: ImgJan,
         userName: '@janno',
         isExpanded: false,
         likedGames: [
@@ -278,7 +278,7 @@ export default class App extends Component {
       {
         id: '8',
         name: 'Melanie',
-        imgScr: ImgMelanie,
+        imgSrc: ImgMelanie,
         userName: '@mel',
         isExpanded: false,
         likedGames: [
@@ -308,7 +308,7 @@ export default class App extends Component {
       {
         id: '9',
         name: 'Lukas',
-        imgScr: ImgLukas,
+        imgSrc: ImgLukas,
         userName: '@luks',
         isExpanded: false,
         likedGames: [
@@ -335,7 +335,7 @@ export default class App extends Component {
       {
         id: '1',
         title: 'The Settlers of Catan',
-        imgScr: ImgCatan,
+        imgSrc: ImgCatan,
         numPlayers: '3-4',
         playingTime: '60-120',
         age: '10+',
@@ -391,7 +391,7 @@ export default class App extends Component {
       {
         id: '2',
         title: 'UNO',
-        imgScr: ImgUno,
+        imgSrc: ImgUno,
         numPlayers: '2-10',
         playingTime: '30',
         age: '6+',
@@ -451,7 +451,7 @@ export default class App extends Component {
       {
         id: '3',
         title: 'Monopoly',
-        imgScr: ImgMonopoly,
+        imgSrc: ImgMonopoly,
         numPlayers: '2-8',
         playingTime: '60-180',
         age: '8+',
@@ -502,7 +502,7 @@ export default class App extends Component {
       {
         id: '4',
         title: 'Qwirkle',
-        imgScr: ImgQwirkle,
+        imgSrc: ImgQwirkle,
         numPlayers: '2-4',
         playingTime: '45',
         age: '6+',
@@ -543,7 +543,7 @@ export default class App extends Component {
       {
         id: '5',
         title: 'Scrabble',
-        imgScr: ImgScrabble,
+        imgSrc: ImgScrabble,
         numPlayers: '2-4',
         playingTime: '45',
         age: '6+',

@@ -42,21 +42,21 @@ const Title = styled.h2`
 export default class PlayerCard extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    imgScr: PropTypes.string,
+    imgSrc: PropTypes.string,
     userName: PropTypes.string.isRequired,
     isExpanded: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    imgScr: ImgDefault
+    imgSrc: ImgDefault
   }
 
   render() {
     const {
       id,
       name,
-      imgScr,
+      imgSrc,
       userName,
       isExpanded,
       onClick,
@@ -67,7 +67,7 @@ export default class PlayerCard extends Component {
       <Card data-cy="PlayerCard">
         <CardContent>
           <ImageContainer>
-            <Image src={imgScr} alt="" />
+            <Image src={imgSrc} alt="" />
           </ImageContainer>
           <Title>{name}</Title>
           <BookmarkIcon

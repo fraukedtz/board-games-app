@@ -34,7 +34,7 @@ const Title = styled.h2`
 export default class GameCard extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    imgScr: PropTypes.string,
+    imgSrc: PropTypes.string,
     numPlayers: PropTypes.string.isRequired,
     playingTime: PropTypes.string.isRequired,
     age: PropTypes.string.isRequired,
@@ -43,7 +43,7 @@ export default class GameCard extends Component {
   }
 
   static defaultProps = {
-    imgScr:
+    imgSrc:
       'https://cf.geekdo-images.com/original/img/z3OFp3362X0ZPf5CIc5vfxzwDsg=/0x0/pic981505.jpg'
   }
 
@@ -51,7 +51,7 @@ export default class GameCard extends Component {
     const {
       id,
       title,
-      imgScr,
+      imgSrc,
       numPlayers,
       playingTime,
       age,
@@ -62,7 +62,7 @@ export default class GameCard extends Component {
     return (
       <Card data-cy="GameCard">
         <ImageContainer>
-          <Image src={imgScr} alt="" />
+          <Image src={imgSrc} alt="" />
         </ImageContainer>
         <CardContent>
           <Title>{title}</Title>
