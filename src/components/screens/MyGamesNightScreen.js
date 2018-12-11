@@ -20,9 +20,7 @@ export default class MyGamesNightScreen extends Component {
               <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
               <SubHeading text="Games" />
               {this.props.gamesNight.games.length > 0 ? (
-                <React.Fragment>
-                  <GamesContainer>{this.renderAllGames()}</GamesContainer>
-                </React.Fragment>
+                <GamesContainer>{this.renderAllGames()}</GamesContainer>
               ) : (
                 <React.Fragment>
                   No games selected - choose which games you would like to play
@@ -60,9 +58,15 @@ export default class MyGamesNightScreen extends Component {
       .map(this.renderSingleGame)
   }
 
+  getImgScr = gameId => {
+    const game = this.props.games.find(g => g.id === gameId)
+    return game.imgScr
+  }
+
   renderSingleGame = game => (
     <GameTagWithWinner
       key={game.id}
+      imgScr={this.getImgScr(game.id)}
       {...game}
       players={this.props.gamesNight.players}
       addWinnerToGame={this.props.addWinnerToGame}

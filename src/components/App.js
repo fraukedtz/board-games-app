@@ -622,6 +622,7 @@ export default class App extends Component {
             render={() => (
               <MyGamesNightScreen
                 gamesNight={this.state.gamesNight}
+                games={this.state.games}
                 addWinnerToGame={this.addWinnerToGame}
               />
             )}
