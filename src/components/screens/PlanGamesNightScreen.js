@@ -30,7 +30,7 @@ export default class PlanGamesNightScreen extends Component {
               <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
               <SubHeading text="Games that players like" />
               Choose which games you want to play
-              <GamesContainer>{this.renderAllGames()}</GamesContainer>
+              <GamesContainer gap="10">{this.renderAllGames()}</GamesContainer>
             </React.Fragment>
           ) : (
             <React.Fragment>

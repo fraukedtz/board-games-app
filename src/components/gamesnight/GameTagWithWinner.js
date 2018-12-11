@@ -4,32 +4,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Wrapper = styled.div`
   align-items: center;
-  height: 110px;
+  background-blend-mode: lighten;
+  background-color: rgba(255, 255, 255, 0.2);
   background-size: cover;
   background-position: center;
   border-radius: 5px;
-  padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
-  background-blend-mode: lighten;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  height: 110px;
+  padding-top: 10px;
+`
+const TitleContainer = styled.div`
+  align-items: center;
+  display: flex;
 `
 
 const Title = styled.div`
   background: #fefefe;
-  padding: 10px 10px 10px 20px;
   border-radius: 0 5px 5px 0;
-  font-weight: bold;
-  /* letter-spacing: 0.05em; */
-`
-const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
+  padding: 10px 10px 10px 20px;
 `
 
 const Container = styled.div`
+  align-items: center;
   display: flex;
   padding: 20px 10px 0 10px;
-  align-items: center;
+`
+const Icon = styled.div`
+  background: #eaeaea;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
 `
 
 const SelectWinner = styled.select`
@@ -38,14 +41,7 @@ const SelectWinner = styled.select`
   color: #333;
   font-size: 1em;
   padding: 10px;
-
   width: 100%;
-`
-
-const Icon = styled.div`
-  background: #eaeaea;
-  padding: 10px;
-  border-radius: 5px 0 0 5px;
 `
 
 export default class GameTag extends Component {
