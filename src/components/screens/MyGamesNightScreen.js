@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import Header from '../Header'
 import Container from '../gamesnight/Container'
-import SubHeading from '../gamesnight/SubHeading'
 import PlayersContainer from '../styledcomponents/PlayersContainer'
 import PlayerTagWithImg from '../gamesnight/PlayerTagWithImg'
 import GamesContainer from '../styledcomponents/GamesContainer'
@@ -16,9 +15,9 @@ export default class MyGamesNightScreen extends Component {
         <Container>
           {this.props.gamesNight.players.length > 0 ? (
             <React.Fragment>
-              <SubHeading text="Players" />
-              <PlayersContainer>{this.renderAllPlayers()}</PlayersContainer>
-              <SubHeading text="Games" />
+              <PlayersContainer margin="20">
+                {this.renderAllPlayers()}
+              </PlayersContainer>
               {this.props.gamesNight.games.length > 0 ? (
                 <GamesContainer>{this.renderAllGames()}</GamesContainer>
               ) : (
