@@ -88,6 +88,7 @@ export default class GameTag extends Component {
         : [<option value="">Choose winner here</option>]
 
     const playerOptions = this.props.players
+      .slice()
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSingleOption)
 

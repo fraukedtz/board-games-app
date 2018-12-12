@@ -43,6 +43,7 @@ export default class MyGamesNightScreen extends Component {
 
   renderAllPlayers() {
     return this.props.gamesNight.players
+      .slice()
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)
   }
@@ -53,6 +54,7 @@ export default class MyGamesNightScreen extends Component {
 
   renderAllGames() {
     return this.props.gamesNight.games
+      .slice()
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)
   }
