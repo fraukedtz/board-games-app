@@ -22,12 +22,10 @@ const Wrapper = styled.div`
 `
 
 const store = configureStore({ reducer })
-store.subscribe(
-  () => (
-    saveBookmarkedPlayers(store.getState().gamesNight.players),
-    saveBookmarkedGames(store.getState().gamesNight.games)
-  )
-)
+store.subscribe(() => {
+  saveBookmarkedPlayers(store.getState().gamesNight.players)
+  saveBookmarkedGames(store.getState().gamesNight.games)
+})
 
 export default class App extends Component {
   render() {
