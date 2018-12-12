@@ -110,7 +110,7 @@ export default class GameCard extends Component {
   }
 
   renderSingleKeenPlayer = player => (
-    <li key={player.key} className={player.ownsGame ? 'owns' : ''}>
+    <li key={player.id} className={player.ownsGame ? 'owns' : ''}>
       {player.name}
     </li>
   )
@@ -122,7 +122,7 @@ export default class GameCard extends Component {
   }
 
   renderSingleOwnerPlayer = player => (
-    <li key={player.key} className={'owns'}>
+    <li key={player.id} className={'owns'}>
       {player.name}
     </li>
   )

@@ -66,7 +66,7 @@ export default class PlanGamesNightScreen extends Component {
     const { gamesNight } = this.props
     let likedGamesBySelectedPlayers = []
 
-    gamesNight.players.map(player => {
+    gamesNight.players.forEach(player => {
       player.likedGames.forEach(game => {
         likedGamesBySelectedPlayers.push(game)
       })

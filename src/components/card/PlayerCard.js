@@ -119,7 +119,7 @@ export default class PlayerCard extends Component {
   }
 
   renderSingleLikedGame = game => (
-    <li key={game.key} className={game.isOwned ? 'owns' : ''}>
+    <li key={game.id} className={game.isOwned ? 'owns' : ''}>
       {game.title}
     </li>
   )
@@ -131,7 +131,7 @@ export default class PlayerCard extends Component {
   }
 
   renderSingleOwnedGame = game => (
-    <li key={game.key} className={'owns'}>
+    <li key={game.id} className={'owns'}>
       {game.title}
     </li>
   )
