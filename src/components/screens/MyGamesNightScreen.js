@@ -30,7 +30,7 @@ export default class MyGamesNightScreen extends Component {
           ) : (
             <React.Fragment>
               It's empty here - start planing your games night by selecting
-              players and choosing games that you'd like to play together!{' '}
+              players and choosing games that you'd like to play together!
               <span role="img" aria-label="smiling face with sunglasses">
                 😎
               </span>
