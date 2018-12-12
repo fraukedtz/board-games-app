@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-
-import Input from '../Input'
 import CardsContainer from '../card/CardsContainer'
 import GameCard from '../card/GameCard'
+import Input from '../Input'
 
 export default class GamesScreen extends Component {
   render() {
