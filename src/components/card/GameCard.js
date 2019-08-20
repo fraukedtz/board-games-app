@@ -105,6 +105,7 @@ export default class GameCard extends Component {
 
   renderkeenPlayers() {
     return this.props.keenPlayers
+      .slice()
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSingleKeenPlayer)
   }
@@ -117,6 +118,7 @@ export default class GameCard extends Component {
 
   renderOwnedByPlayers() {
     return this.props.owners
+      .slice()
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSingleOwnerPlayer)
   }

@@ -27,6 +27,7 @@ export default class PlayersScreen extends Component {
 
   renderAllPlayers() {
     return this.props.players
+      .slice()
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSinglePlayer)
   }

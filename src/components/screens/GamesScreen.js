@@ -24,6 +24,7 @@ export default class GamesScreen extends Component {
 
   renderAllGames() {
     return this.props.games
+      .slice()
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleGame)
   }

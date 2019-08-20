@@ -114,6 +114,7 @@ export default class PlayerCard extends Component {
 
   renderLikedGames() {
     return this.props.likedGames
+      .slice()
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleLikedGame)
   }
@@ -126,6 +127,7 @@ export default class PlayerCard extends Component {
 
   renderOwnedGames() {
     return this.props.ownedGames
+      .slice()
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleOwnedGame)
   }
